@@ -1,0 +1,47 @@
+[
+    {
+        "id": 0,
+        "name": "certification",
+        "url": "./json/certification.json"
+    },
+    {
+        "id": 1,
+        "name": "contact",
+        "url": "./json/contact.json"
+    },
+    {
+        "id": 2,
+        "name": "education",
+        "url": "./json/education.json"
+    },
+    {
+        "id": 3,
+        "name": "expertice",
+        "url": "./json/expertice.json"
+    },
+    {
+        "id": 4,
+        "name": "language",
+        "url": "./json/language.json"
+    },
+    {
+        "id": 5,
+        "name": "profile",
+        "url": "./json/profile.json"
+    },
+    {
+        "id": 6,
+        "name": "project",
+        "url": "./json/project.json"
+    },
+    {
+        "id": 7,
+        "name": "reference",
+        "url": "./json/reference.json"
+    },
+    {
+        "id": 8,
+        "name": "skill",
+        "url": "./json/skill.json"
+    }
+]

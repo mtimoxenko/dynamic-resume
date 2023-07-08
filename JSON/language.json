@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "name":"Spanish",
+        "description":"Native"
+    },
+    {
+        "id": 1,
+        "name":"English",
+        "description":"C1 Advanced"
+    },
+    {
+        "id": 2,
+        "name":"Ukrainian",
+        "description":"Mother Language"
+    },
+    {
+        "id": 3,
+        "name":"Russian",
+        "description":"Mother Language"
+    }
+]

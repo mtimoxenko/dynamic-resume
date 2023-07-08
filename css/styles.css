@@ -1,7 +1,9 @@
 :root {
     --color-bg-main: rgb(30, 33, 43);
     --color-main-text: rgb(179, 179, 190);
-
+    --color-main-text-title: rgba(255, 255, 255, 0.92);
+    --color-main-text-subtitle: rgb(202, 202, 202);
+    --color-main-link: rgb(228, 192, 192);
 
     --border-white: 1px solid rgb(221, 224, 236);
     --border-green: 1px solid rgb(100, 239, 102);
@@ -9,94 +11,251 @@
     --border-red: 1px solid rgb(227, 58, 58);
 }
 
-/* Universal Selector */
-* {
+/*      Universal Selector          */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-/* Flex-Box GENERIC */
+.tablet-box{
+    width: 526px;
+ }
+/* ----------------------------------*/
+/*                 flex              */
+/* --------------------------------- */
 .flex {
     display: flex;
 }
-.flexBoxRow{
+.flex-row{
     display: flex;
     flex-direction:row;
+    text-align: center;
 }
-.flexBoxColumn{
+.flex-column{
     display: flex;
     flex-direction:column;
+    text-align: center;
 }
-.whiteBox{
-   border: var(--border-white);
+.start-items{
+    align-items: start;
 }
-.greenBox{
-    border: var(--border-green);
- }
- .yellowBox{
-    border: var(--border-yellow);
- }
- .redBox{
-    border: var(--border-red);
- }
+.center-items{
+    align-items: center;
+}
+.start-content{
+    justify-content: start;
+}
+.center-content{
+    justify-content: center;
+}
+.space-content{
+    justify-content: space-around;
+}
+.space-between{
+    justify-content: space-between;
+}
 
-                    /* ************* 
-********************|  Tag STYLES |*********************
-                    ***************/
+
+/* -------------------------------------*/
+/*                 margins              */
+/* ------------------------------------ */
+.margin1 {
+    margin: 1%;
+}
+.margin2 {
+    margin: 2%;
+}
+.margin3 {
+    margin: 3%;
+}
+.margin-lr-20 {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+/* ---------------------------------*/
+/*                 gap              */
+/* -------------------------------- */
+.gap5 {
+    gap: 5px;
+}
+.gap10 {
+    gap: 10px;
+}
+.gap15 {
+    gap: 15px;
+}
+.gap25 {
+    gap: 25px;
+}
+.gap50 {
+    gap: 50px;
+}
+.gap100 {
+    gap: 100px;
+}
+.gap200 {
+    gap: 200px;
+}
+
+/* -------------------------------------*/
+/*                 text                 */
+/* ------------------------------------ */
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+
+/* -------------------------------------*/
+/*                 main                 */
+/* ------------------------------------ */
 body {
-    flex-direction: column;
     background-color: var(--color-bg-main);
-    text-align: center;
     color:var(--color-main-text);
-    margin: 2%;
-}
-header {
-    flex-direction:row;
-    text-align:center;
-    margin: 2%;
-}
-main {
-    flex-direction: column;
-    text-align: center;
-    margin: 2%;
 }
 footer {
-    flex-direction: column;
-    text-align: center;
-    margin: 2%;
     margin-top: 10%;
+}
+h1, h2{
+    color: var(--color-main-text-title);
+}
+h3, h4{
+    color: var(--color-main-text-subtitle);
 }
 hr {
         display: block;
         width: 25%;
         border-top: 2px solid #ccc;
         border-radius: 50px;
-        margin: 1em 0;
+        margin: 0.5em 0;
         padding: 0;
 }
+a:link {
+    color: var(--color-main-link);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: var(--color-main-link);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:active {
+    color: rgb(218, 251, 232);
+    background-color: transparent;
+    text-decoration: none;
+  }
 
-
-
-
-
-.addFlex{
-    flex-direction:row;
-    text-align:center;
-    justify-content:space-around;
+input{
+color: var(--color-main-text);
 }
-.footFlex{
-    flex-direction:row;
-    text-align:center;
-    justify-content:space-around;
-}
 
-.profile{
-    flex-direction:row;
-    margin-bottom: 10%;
+button{
+color: var(--color-main-text);
+border-radius: 4px;
+background-color: transparent;
+border: 2px solid var(--color-main-text);
+transition-duration: 0.4s;
+cursor: pointer;
+text-decoration: none;
+display: inline-block;
+width: 40%;   /* normal 30% */
+margin-top: 4%;
+padding: 15px 20px;
 }
-.main{
-    flex-direction:row;
+  button:hover {
+    background-color: rgb(91, 98, 117);
+    color: white;
+  }
+
+
+/* -------------------------------------*/
+/*                 custom               */
+/* ------------------------------------ */
+.custom-field {
+    position: relative;
+    font-size: 14px;
+    border-top: 20px solid transparent;
+    margin-bottom: 5px;
+    display: inline-block;
+    --field-padding: 12px;
+  }
+
+  .custom-field input {
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--color-bg-main);
+    padding: var(--field-padding);
+    border-radius: 3px;
+    width: 170px;  /* INPUTS 'name' - 'email' WIEVPORT 200px */
+    outline: none;
+    font-size: 14px;
+  }
+  #message{
+    width: 300px;   /* INPUT WIEVPORT 400px */
+  }
+
+  .custom-field .placeholder {
+    position: absolute;
+    left: var(--field-padding);
+    width: calc(100% - (var(--field-padding) * 2));
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    top: 22px;
+    line-height: 100%;
+    transform: translateY(-50%);
+    color: var(--color-main-text);
+    transition: 
+      top 0.3s ease,
+      color 0.3s ease,
+      font-size 0.3s ease;
+  }
+
+
+  .custom-field input:focus + .placeholder,
+  .custom-field input:not(:placeholder-shown) + .placeholder {
+    top: -10px;
+    font-size: 10px;
+    color: var(--color-main-text);
+  }
+
+
+  /* TWO */
+  .custom-field.two input {
+    border-radius: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background:
+        linear-gradient(90deg, #222222, #222222) center bottom/0 0.15em no-repeat,
+        linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
+        linear-gradient(90deg, var(--color-bg-main), var(--color-bg-main)) left bottom/100% no-repeat;
+    transition: background-size 0.3s ease;
+  }
+
+  .custom-field.two input:not(:placeholder-shown),
+  .custom-field.two input:focus {
+    background-size: 100% 0.15em, 100% 0.1em, 100%;
+  }
+
+
+/* ----------------------------------*/
+/*                 IMG               */
+/* --------------------------------- */
+#imgProfile{
+    width: 180px;
+    vertical-align: middle;
+    height: auto;
+    border-radius: 50%;
 }
 .imgCert{
     width: 50px;
@@ -105,7 +264,9 @@ hr {
     border-radius: 50%;
 }
 
-                                /*     Progress bar    */
+/* -------------------------------*/
+/*          Progress bar          */
+/* ------------------------------ */
 .myProgress {
     width: 50%;
     background-color:#EFEDF6;
@@ -117,242 +278,19 @@ hr {
     background-color:#b97d55;
     line-height: 1px;
 }
-/* ------------ */
 
-
-
-
-
-                                        /*  work    */
-.work{
-    display: flex;
-    flex-direction:column;
-}
-.workDetail{
-    display: flex;
-    flex-direction:column;
-    margin-top: 8%;
-    margin-right: 10%;
-}
-.workUpper{
-    display: flex;
-    flex-direction:row;
-    text-align: left;
-}
-.workDate{
-    box-sizing: content-box;
-    width: 14%;
-}
-.workDescription{
-    flex-direction:column;
-    gap: 10px;
-    box-sizing: content-box;
-    width: 80%;
-}
-
-.workTag{
-    margin-top: 3%;
-    text-align: center;
-}
-#workTitle{
-    text-align: left;
-}
-
-
-
-
-                                        /*  skills  */
-.skill{
-    flex-direction:column;
-}
-.skillDetail{
-    flex-direction:row;
-    justify-content: space-between;
-    margin-right: 15%;
-    margin-top: 2%;
-}
-#skillTitle{
-    margin-bottom: 6%;
-    text-align: left;
-}
-
-
-
-
-                                        /*  education  */
-.education{
-    flex-direction:column;
-    margin-top: 25%;
-}
-.educationDetail{
-    display: flex;
-    flex-direction:column;
-    margin-top: 8%;
-    margin-right: 20%;
-}
-.educationUpper{
-    display: flex;
-    flex-direction:row;
-    text-align: left;
-}
-.educationDate{
-    display: flex;
-    flex-direction:column;
-}
-.educationDescription{
-    flex-direction:column;
-    gap: 10px;
-}
-.verticalLine {
-    border-left: var(--border-white);
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-.educationTag{
-    margin-top: 3%;
-    text-align: left;
-}
-#educationTitle{
-    text-align: left;
-}
-
-
-
-
-                                        /*  expertise  */
-.expertise{
-    flex-direction:column;
-    margin-top: 25%;
-}
-.expertiseDetail{
-    flex-direction:row;
-    justify-content: space-between;
-    margin-top: 2%;
-    margin-right: 15%;
-}
-#expertiseTitle{
-    margin-bottom: 6%;
-    text-align: left;
-}
-
-
-
-                                        /*  language  */
-.language{
-    flex-direction:column;
-    margin-top: 25%;
-}
-.languageDetail{
-    text-align: left;
-}
-.languageDescription{
-    flex-direction:column;
-    margin-left: 1%;
-    margin-bottom: 3%;
-    gap: 6px;
-}
-#languageTitle{
-    margin-bottom: 8%;
-    text-align: left;
-}
-
-
-
-                                        /*  certification  */
-.certification{
-    flex-direction:column;
-    margin-top: 25%;
-}
-#certificationTitle{
-    margin-bottom: 8%;
-    text-align: left;
-}
-.certificationImg{
-    margin-top: 1%;
+/* -------------------------------------*/
+/*                 test                 */
+/* ------------------------------------ */
+.white-box{
+    border: var(--border-white);
  }
- .certificationDetail{
-     text-align: left;
- }
- .certificationDescription{
-     flex-direction:column;
-     margin-left: 5%;
-     margin-bottom: 3%;
-     gap: 6px;
- }
-
-
-
-                                        /*  hobbie  */
-.hobbie{
-    flex-direction:column;
-    margin-top: 25%;
-}
-#hobbieTitle{
-    margin-bottom: 8%;
-    text-align: left;
-}
-.hobbieBox{
-    flex-direction: row;
-    justify-content: space-between;
-}
-.hobbieDetail{
-    flex-direction: column;
-    gap: 16px;
-}
-.fa-icon{
-    font-size: 18px;
-}
-
-
-                                        /*  reference  */
-.referenceBox{
-    flex-direction: row;
-    text-align: left;
-    gap: 50px;
-}
-.referenceLi{
-    flex-direction: row;
-}
-.referenceDetail{
-    gap: 15px;
-    flex-direction: column;
-}
-#referenceTitle{
-    margin-bottom: 3%;
-    text-align: left;
-}
-
-
-
-
-
-
-
-/*              IDs               */
-#description{
-    margin: 0.5%;
-    text-align: start;
-    flex-direction:column;
-    justify-content:space-around;
-}
-
-#img{
-    margin: 0.5%;
-}
-#imgProfile{
-    width: 300px;
-    vertical-align: middle;
-    height: auto;
-    border-radius: 50%;
-}
-#left{
-    width: 50%;
-    margin: 1%;
-}
-#right{
-    width: 50%;
-    margin: 1%;
-    flex-direction:column;
-}
+ .green-box{
+     border: var(--border-green);
+  }
+  .yellow-box{
+     border: var(--border-yellow);
+  }
+  .red-box{
+     border: var(--border-red);
+  }

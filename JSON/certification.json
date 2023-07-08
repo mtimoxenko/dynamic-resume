@@ -1,0 +1,30 @@
+[
+    {
+        "name":"CCNA: Introduction to Networks",
+        "establishment":"Cisco",
+        "date":"August 18, 2022",
+        "img":"./img/ccna.jpg",
+        "href":"https://www.credly.com/badges/9e63e230-0867-4002-99ad-8eba1840c3f4/linked_in?t=rguebz"
+    },
+    {
+        "name":"[JSE-40-01] JSE - Certified Entry-Level JavaScript Programmer",
+        "establishment":"JS Institute",
+        "date":"October 31, 2022",
+        "img":"./img/js.jpg",
+        "href":"https://www.credly.com/badges/ade37741-b339-4b34-a8a9-48cc97fbfd48/linked_in?t=rkmjva"
+    },
+    {
+        "name":"NDG Linux Unhatched",
+        "establishment":"Cisco",
+        "date":"April 27, 2023",
+        "img":"./img/ndg.jpg",
+        "href":"./img/linux-certificate.pdf"
+    },
+    {
+        "name":"EF SET English Certificate 70/100 (C1 Advanced)",
+        "establishment":"EF Standard English Test (EF SET) ",
+        "date":"October 31, 2022",
+        "img":"./img/eng.jpg",
+        "href":"https://www.efset.org/cert/DLGA7e"
+    }
+]

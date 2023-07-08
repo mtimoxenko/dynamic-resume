@@ -1,0 +1,9 @@
+{
+    "name":"MAXIMO",
+    "surname":"TIMOCHENKO",
+    "profession":"Full Stack Development - Crafting Digital Experiences",
+    "about":"Welcome to my personal web page! I'm a full stack developer dedicated to creating meaningful digital experiences. Continuous learning is a fundamental aspect of my professional journey. I actively explore new frameworks and technologies to stay up-to-date with the latest industry trends and deliver innovative solutions. By combining my technical skills, problem-solving mindset, and creativity, I strive to create outstanding digital experiences that leave a lasting impact. Thank you for visiting my page, and I look forward to collaborating on exciting projects that push the boundaries of what's possible in the digital realm. Let's create something remarkable together!",
+    "img":"./img/profile.jpg",
+    "img2":"./img/profile2.jpg",
+    "alt":"profile img"
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Continuous Learning",
+        "points":73,
+        "detail":"Able to quickly learn new tools and technologies, adapt to changing requirements, and apply them effectively in projects.",
+        "id":"ex0co"
+    },
+    {
+        "name":"Collaboration",
+        "points":87,
+        "detail":"Expertise in working effectively within a development team, collaborating with other developers. Strong communication skills and the ability to effectively articulate and discuss technical concepts.",
+        "id":"ex1co"
+    },
+    {
+        "name":"Accessibility",
+        "points":53,
+        "detail":"Understanding and implementing web accessibility standards to ensure your applications are usable by individuals with disabilities.",
+        "id":"ex2ac"
+    },
+    {
+        "name":"Agile Methodologies",
+        "points":62,
+        "detail":"Expertise in Agile methodologies such as Scrum or Kanban.",
+        "id":"ex3ag"
+    },
+    {
+        "name":"Responsive Design",
+        "points":76,
+        "detail":"Understanding the principles of responsive design and ensuring your applications are accessible across various devices and screen sizes.",
+        "id":"ex4re"
+    }
+]

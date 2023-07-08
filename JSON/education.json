@@ -1,0 +1,16 @@
+[
+    {
+        "degree":"University of Buenos Aires",
+        "establishment":"Mathematics and Computer Science",
+        "detail":"Solid grounding in mathematical principles and computer science concepts. Combination of technical, analytical, and problem-solving skills.",
+        "start":2018,
+        "finish":2022
+    },
+    {
+        "degree":"Digital House",
+        "establishment":"Certified Tech Developer",
+        "detail":"Programming and development of cutting-edge digital products. Comprehensive training in Front End, Back End, infrastructure, database, alongside invaluable soft skills including rapid learning agility, teamwork, communication, and unwavering professional mindset.",
+        "start":2022,
+        "finish":"In progress"
+    }
+]

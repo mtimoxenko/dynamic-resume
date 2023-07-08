@@ -1,0 +1,32 @@
+[
+    {
+        "iconClass":["fa-regular", "fa-paper-plane"],
+        "medium":"Email",
+        "detail":"mtimochenko@tutanota.com",
+        "href":"mailto:mtimochenko@tutanota.com"
+    },
+    {
+        "iconClass": ["fa-solid", "fa-earth-americas"],
+        "medium":"Address",
+        "detail":"Buenos Aires, Argentina",
+        "href":"https://goo.gl/maps/8oUdmiFPnnRTFU7T6"
+    },
+    {
+        "iconClass": ["fa-brands", "fa-linkedin"],
+        "medium":"LinkedIn",
+        "detail":"@maximo-timochenko",
+        "href":"https://www.linkedin.com/in/maximo-timochenko/"
+    },
+    {
+        "iconClass":["fa-regular", "fa-paper-plane"],
+        "medium":"Email",
+        "detail":"contact@stellinelab.com",
+        "href":"mailto:contact@stellinelab.com"
+    },
+    {
+        "iconClass":["fa-brands", "fa-github"],
+        "medium":"GitHub",
+        "detail":"@fr3m3n",
+        "href":"https://github.com/fr3m3n"
+    }
+]

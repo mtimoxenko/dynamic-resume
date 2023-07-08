@@ -1,0 +1,50 @@
+[
+    {
+        "name":"Programming",
+        "points":75,
+        "detail":"Proficiency in programming languages: Java, JavaScript, Python.",
+        "id":"sk0pr"
+    },
+    {
+        "name":"Front-End Development",
+        "points":70,
+        "detail":"Proficiency in HTML, CSS, and JavaScript framework such as React.",
+        "id":"sk1fr"
+    },
+    {
+        "name":"Back-End Development",
+        "points":30,
+        "detail":"Familiarity with server-side technologies such as Node.js. Understanding how to build APIs and handle data storage (databases).",
+        "id":"sk2ba"
+    },
+    {
+        "name":"Database Management",
+        "points":40,
+        "detail":"Knowledge of relational databases (MySQL). Understanding how to design, query, and optimize databases for building scalable and efficient applications.",
+        "id":"sk3da"
+    },
+    {
+        "name":"Version Control",
+        "points":50,
+        "detail":"Proficiency with Git version control system for a collaborative development environment.",
+        "id":"sk4ve"
+    },
+    {
+        "name":"Problem-Solving",
+        "points":80,
+        "detail":"Strong problem-solving skills. Able to analyze complex problems, break them down into smaller tasks, and find effective solutions using critical thinking and logical reasoning.",
+        "id":"sk5pr"
+    },
+    {
+        "name":"Web Services and APIs",
+        "points":10,
+        "detail":"Understanding how to integrate with external APIs and consume web services. Knowledge of RESTful APIs and the ability to work with JSON/XML data formats.",
+        "id":"sk6we"
+    },
+    {
+        "name":"Testing and Debugging",
+        "points":35,
+        "detail":"Proficiency in writing unit tests and performing debugging. Familiarity with testing frameworks (e.g., Jest, Pytest) and debugging tools.",
+        "id":"sk7te"
+    }
+]

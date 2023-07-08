@@ -236,9 +236,9 @@ padding: 15px 20px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     background:
-        linear-gradient(90deg, #222222, #222222) center bottom/0 0.15em no-repeat,
-        linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
-        linear-gradient(90deg, var(--color-bg-main), var(--color-bg-main)) left bottom/100% no-repeat;
+        -webkit-linear-gradient(90deg, #6f6c6c, #6f6c6c) center bottom/0 0.15em no-repeat,
+        -webkit-linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
+        -webkit-linear-gradient(90deg, var(--color-bg-main), var(--color-bg-main)) left bottom/100% no-repeat;
     transition: background-size 0.3s ease;
   }
 

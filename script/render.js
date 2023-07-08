@@ -1,10 +1,6 @@
-// SSL
-// form -> mail
-// let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
 
 // pop-up
 // matrix mode
-
 
 window.addEventListener('load', function () {
 
@@ -89,6 +85,7 @@ window.addEventListener('load', function () {
     main.classList.add('margin2','flex-column','gap200');
     footer.classList.add('margin2','flex-column','gap100', 'space-between');
 
+
     // Media Queries
     if(checkTablet.matches) {
         console.log('TABLET');
@@ -99,6 +96,7 @@ window.addEventListener('load', function () {
         footer.classList.remove('flex-column', 'gap100', 'space-between');
         footer.classList.add('center-items', 'flex-row', 'space-content');
     };
+
 
     // HEADER
     (function () {
@@ -176,6 +174,7 @@ window.addEventListener('load', function () {
 
         // main html skeleton
         (function(){
+
             const fragment = new DocumentFragment();
             const article1 = document.createElement("article");
             const article2 = document.createElement("article");
@@ -197,7 +196,6 @@ window.addEventListener('load', function () {
             const title6 = document.createElement("h2");
             const title7 = document.createElement("h2");
 
-
             // nodes tree
             section1.appendChild(title1);
             section2.appendChild(title2);
@@ -210,7 +208,6 @@ window.addEventListener('load', function () {
             divDesktop1.appendChild(section2);
             divDesktop1.appendChild(section3);
             div1.appendChild(divDesktop1);
-            // div1.appendChild(section3);
             div2.appendChild(section4);
             div2.appendChild(section5);
             div2.appendChild(section6);
@@ -226,7 +223,6 @@ window.addEventListener('load', function () {
             article2.setAttribute("id", "mainArticleDetail");
             div1.setAttribute("id", "leftMain");
             div2.setAttribute("id", "rightMain");
-            // divDesktop1.setAttribute("id", "desktop-expertise-cert");
             section1.setAttribute("id", "project");
             section2.setAttribute("id", "expertise");
             section3.setAttribute("id", "certification");
@@ -272,7 +268,6 @@ window.addEventListener('load', function () {
                 article2.classList.remove('flex-column');
                 article2.classList.add('flex-row', 'space-content', 'start-items');
             }; 
-
 
         }());
         
@@ -386,7 +381,6 @@ window.addEventListener('load', function () {
                     const p = document.createElement("p");
                     const span3 = document.createElement("span");
 
-
                     // nodes tree
                     div2.appendChild(h3);
                     div2.appendChild(a);
@@ -474,43 +468,7 @@ window.addEventListener('load', function () {
                             }, 35);
                         }
                     }
-
-                    // main.expertise.forEach(exp =>{  // <-----------
-                    //     if(exp.id===e.getAttribute("id")){
-                    //         // skill bar
-                    //         // e.style.width = exp.points + "%";
-            
-                    //         // progress bar
-                    //         let i = 0;
-                    //         const interval = setInterval(function(){           
-                    //             if(i<=exp.points){
-                    //                 e.style.width = i + "%";
-                    //             } else{
-                    //                 clearInterval(interval);
-                    //             }
-                    //             i++;
-                    //         }, 35);
-                    //     }
-                    // });
-                    // main.skill.forEach(ski =>{
-                    //     if(ski.id===e.getAttribute("id")){
-                    //         // skill bar
-                    //         // e.style.width = ski.points + "%";
-            
-                    //         // progress bar
-                    //         let i = 0;
-                    //         const interval = setInterval(function(){           
-                    //             if(i<=ski.points){
-                    //                 e.style.width = i + "%";
-                    //             } else{
-                    //                 clearInterval(interval);
-                    //             }
-                    //             i++;
-                    //         }, 35);
-                    //     }
-                    // });         
-
-
+      
                 })
             }
 
@@ -539,38 +497,23 @@ window.addEventListener('load', function () {
                     const h4 = document.createElement("h4");
                     const div1 = document.createElement("div");
                     const div2 = document.createElement("div");
-                    // const div3 = document.createElement("div");
-                    // const div4 = document.createElement("div");
-                    // const div5 = document.createElement("div");
                     const div6 = document.createElement("div");
-                    // const span1 = document.createElement("span");
-                    // const span2 = document.createElement("span");
 
                     // nodes tree
-                    // div3.appendChild(span1);
-                    // div3.appendChild(span2)
                     div2.appendChild(h3);
                     div2.appendChild(h4);
-                    // div2.appendChild(div3);
-                    // div2.appendChild(div4);
-                    // div2.appendChild(div5);
                     div1.appendChild(div2);
                     div1.appendChild(div6);
                     fragment.appendChild(div1);
                     section.appendChild(fragment);
 
-
                     // atributes
-                    // span1.textContent = `${iterator.start}`;
-                    // span2.textContent = `${iterator.finish}`;
                     h3.textContent = `${iterator.degree}`;
                     h4.textContent = `${iterator.establishment}`;
                     div6.textContent = `${iterator.detail}`;
-                    // div4.classList.add("verticalLine");
                     div1.classList.add('gap10','flex-column');
-                    // div2.classList.add('gap5','flex-column');
                 }
-                
+             
             }
 
         }());
@@ -613,7 +556,6 @@ window.addEventListener('load', function () {
                     div2.classList.add("myProgress");
                     div3.classList.add("myBar");
                     div3.setAttribute("id", `${iterator.id}`);
-
                 }
                 
             }
@@ -690,14 +632,13 @@ window.addEventListener('load', function () {
                     div.classList.add('gap10');
                     i++;
                 } 
-                
+
                 // Media Queries
                 if(checkDesktop.matches) {
                     divMain.classList.remove('flex-row');
                     divMain.classList.add('flex-column', 'gap25');
                 }; 
                 
-
             }
 
         }());
@@ -745,7 +686,6 @@ window.addEventListener('load', function () {
                     const p = document.createElement("p");
                     const a = document.createElement("a");
                     const h4 = document.createElement("h4");
-                    
 
                     // nodes tree
                     div2.appendChild(img);
@@ -789,6 +729,7 @@ window.addEventListener('load', function () {
 
         // footer html skeleton
         (function(){
+
             const fragment = new DocumentFragment();
             const section1 = document.createElement("section");
             const section2 = document.createElement("section");
@@ -815,10 +756,6 @@ window.addEventListener('load', function () {
             title2.setAttribute("id", "contactH2");
             div1.setAttribute("id", "referenceBox");
             div2.setAttribute("id", "contactBox");
-
-
-
-
 
         }());
 
@@ -870,6 +807,7 @@ window.addEventListener('load', function () {
                     email.textContent = `{e} ${iterator.email}`;
                     www.textContent = `{w} ${iterator.www}`;
                     address.textContent = `{a} ${iterator.address}`;
+
                 }
                 
                 // Media Queries
@@ -913,9 +851,7 @@ window.addEventListener('load', function () {
 
                 const p1 = document.createElement("p");
                 const p2 = document.createElement("p");
-                const button = document.createElement("button");
-                
-                
+                const button = document.createElement("button");  
 
                 // nodes tree
                 nameLabel.appendChild(nameInput);
@@ -940,7 +876,6 @@ window.addEventListener('load', function () {
                 box.appendChild(form);
 
                 // atributes
-                // box.classList.add('red-box');
                 form.classList.add('flex-column','gap10', 'center-items');
                 div2.classList.add('flex-column','gap15', 'center-content');
 
@@ -1012,7 +947,6 @@ window.addEventListener('load', function () {
                 fetch(endpoint)
                 .then (res => res.json())
                 .then (data => {
-                    // renderData(data);
                     progressBar(data);
                 });
             };
@@ -1043,9 +977,7 @@ window.addEventListener('load', function () {
                 observerExpertise.unobserve(entry.target);
             }
             expertiseCount++;
-    
-            // Stop observing once the target element is visible
-            // observerExpertise.unobserve(entry.target);
+
         };
 
         });
@@ -1062,7 +994,6 @@ window.addEventListener('load', function () {
         entries.forEach(entry => {
         // Check if the target element is on the screen
         if (entry.isIntersecting) {
-            // Execute your script here
 
              // Fetch API   
              getApi(skill); 
@@ -1070,7 +1001,6 @@ window.addEventListener('load', function () {
                  fetch(endpoint)
                  .then (res => res.json())
                  .then (data => {
-                    //  renderData(data);
                      progressBar(data);
                  });
              };
@@ -1102,9 +1032,7 @@ window.addEventListener('load', function () {
                 observerSkills.unobserve(entry.target);
             }
             skillCount++;
-    
-            // Stop observing once the target element is visible
-            // observerSkills.unobserve(entry.target);
+
         };
 
         });

@@ -432,15 +432,24 @@ window.addEventListener('load', function () {
                     const div1 = document.createElement("div");
                     const div2 = document.createElement("div");
                     const div3 = document.createElement("div");
+                    const toolContainer = document.createElement("div");
+                    const toolText = document.createElement("div");
 
                     // nodes tree
                     div2.appendChild(div3);
-                    div1.appendChild(h3);
+                    toolContainer.appendChild(h3);
+                    toolContainer.appendChild(toolText);
+                    div1.appendChild(toolContainer);
                     div1.appendChild(div2);
                     fragment.appendChild(div1);
                     section.appendChild(fragment);
 
                     // atributes
+                    toolText.textContent = `${iterator.detail}`;
+
+                    toolContainer.classList.add("tooltip-container");
+                    h3.classList.add("tooltip");
+                    toolText.classList.add("tooltip-text");
                     h3.textContent = `${iterator.name}`;
                     div1.classList.add('skill-div','flex-column','center-items');
                     div2.classList.add("myProgress");
@@ -542,16 +551,27 @@ window.addEventListener('load', function () {
                     const div1 = document.createElement("div");
                     const div2 = document.createElement("div");
                     const div3 = document.createElement("div");
+                    const toolContainer = document.createElement("div");
+                    const toolText = document.createElement("div");
 
                     // nodes tree
                     div2.appendChild(div3);
-                    div1.appendChild(h3);
+                    toolContainer.appendChild(h3);
+                    toolContainer.appendChild(toolText);
+                    div1.appendChild(toolContainer);
                     div1.appendChild(div2);
                     fragment.appendChild(div1);
                     section.appendChild(fragment);
 
+
+
                     // atributes
                     h3.textContent = `${iterator.name}`;
+                    toolText.textContent = `${iterator.detail}`;
+
+                    toolContainer.classList.add("tooltip-container");
+                    h3.classList.add("tooltip");
+                    toolText.classList.add("tooltip-text");
                     div1.classList.add('flex-column','center-items');
                     div2.classList.add("myProgress");
                     div3.classList.add("myBar");

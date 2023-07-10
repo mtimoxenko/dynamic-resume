@@ -20,9 +20,9 @@
 .tablet-box{
     width: 526px;
  }
-/* ----------------------------------*/
-/*                 flex              */
-/* --------------------------------- */
+
+
+ /*                 flex              */
 .flex {
     display: flex;
 }
@@ -56,9 +56,7 @@
 }
 
 
-/* -------------------------------------*/
 /*                 margins              */
-/* ------------------------------------ */
 .margin1 {
     margin: 1%;
 }
@@ -72,9 +70,9 @@
     margin-left: 20%;
     margin-right: 20%;
 }
-/* ---------------------------------*/
+
+
 /*                 gap              */
-/* -------------------------------- */
 .gap5 {
     gap: 5px;
 }
@@ -97,9 +95,8 @@
     gap: 200px;
 }
 
-/* -------------------------------------*/
+
 /*                 text                 */
-/* ------------------------------------ */
 .text-left {
     text-align: left;
 }
@@ -107,9 +104,8 @@
     text-align: center;
 }
 
-/* -------------------------------------*/
+
 /*                 main                 */
-/* ------------------------------------ */
 body {
     background-color: var(--color-bg-main);
     color:var(--color-main-text);
@@ -175,9 +171,7 @@ padding: 15px 20px;
   }
 
 
-/* -------------------------------------*/
-/*                 custom               */
-/* ------------------------------------ */
+/*         custom form inputs              */
 .custom-field {
     position: relative;
     font-size: 14px;
@@ -229,18 +223,18 @@ padding: 15px 20px;
     color: var(--color-main-text);
   }
 
-
   /* TWO */
   .custom-field.two input {
     border-radius: 0;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     background:
-        -webkit-linear-gradient(90deg, #6f6c6c, #6f6c6c) center bottom/0 0.15em no-repeat,
-        -webkit-linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
-        -webkit-linear-gradient(90deg, var(--color-bg-main), var(--color-bg-main)) left bottom/100% no-repeat;
+      linear-gradient(90deg, #6f6c6c, #6f6c6c) center bottom/0 0.15em no-repeat,
+      linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
+      linear-gradient(90deg, var(--color-bg-main), var(--color-bg-main)) left bottom/100% no-repeat;
     transition: background-size 0.3s ease;
   }
+  
 
   .custom-field.two input:not(:placeholder-shown),
   .custom-field.two input:focus {
@@ -248,9 +242,7 @@ padding: 15px 20px;
   }
 
 
-/* ----------------------------------*/
 /*                 IMG               */
-/* --------------------------------- */
 #imgProfile{
     width: 180px;
     vertical-align: middle;
@@ -264,9 +256,8 @@ padding: 15px 20px;
     border-radius: 50%;
 }
 
-/* -------------------------------*/
+
 /*          Progress bar          */
-/* ------------------------------ */
 .myProgress {
     width: 50%;
     background-color:#EFEDF6;
@@ -278,6 +269,43 @@ padding: 15px 20px;
     background-color:#b97d55;
     line-height: 1px;
 }
+
+
+/* Tool Tip */
+.tooltip-container {
+    position: relative;
+  }
+  
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    width: 150px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+
+
 
 /* -------------------------------------*/
 /*                 test                 */

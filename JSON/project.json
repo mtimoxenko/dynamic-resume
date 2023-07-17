@@ -1,16 +1,16 @@
 [
     {
-        "title":"Front-end Coding Challenge",
+        "title": "Front-end Coding Challenge",
         "subtitle":"  Manage",
-        "description":"The challenge aims to achieve implementing the correct HTML structure and utilizing semantic tags. Ensuring adaptability for different devices. Implementing forms correctly. Applying Flexbox and adhering to CSS best practices. Utilizing pseudo-elements and pseudo-classes. Incorporating images, icons, fonts, and backgrounds effectively.",
-        "tag":"#FrontEnd #SemanticTagging #ResponsiveDesign",
-        "gitRef":"https://github.com/fr3m3n/f3-challenge"
+        "description": "The challenge aims to achieve implementing the correct HTML structure and utilizing semantic tags. Ensuring adaptability for different devices. Implementing forms correctly. Applying Flexbox and adhering to CSS best practices. Utilizing pseudo-elements and pseudo-classes. Incorporating images, icons, fonts, and backgrounds effectively.",
+        "tag": "#FrontEnd #SemanticTagging #ResponsiveDesign",
+        "gitRef": "https://github.com/fr3m3n/f3-challenge"
     },
     {
         "title":"Dinamic Resume",
         "subtitle":"  WebPage Resume",
-        "description":"Challenge that goes beyond a traditional static document. JavaScript was chosen to build this dinamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. Visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
-        "tag":"#FrontEnd #FetchAPI #DinamicDesign ",
-        "gitRef":"https://github.com/fr3m3n/resume"
+        "description": "The challenge goes beyond a traditional static document. JavaScript was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
+        "tag": "#FrontEnd #FetchAPI #DinamicDesign ",
+        "gitRef": "https://github.com/fr3m3n/resume"
     }
 ]

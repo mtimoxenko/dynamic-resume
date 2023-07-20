@@ -12,5 +12,12 @@
         "description": "The challenge goes beyond a traditional static document. JavaScript was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
         "tag": "#FrontEnd #FetchAPI #DinamicDesign ",
         "gitRef": "https://github.com/fr3m3n/resume"
+    },
+    {
+        "title":"ToDo App",
+        "subtitle":"  Task Manager",
+        "description": "A classic yet effective task application where we can jot down various activities that we are interested in accomplishing. As is often the case, these tasks remain pending until they are eventually completed. Returning to the technical aspect, we have a frontend that connects to a specifically prepared API to serve as our backend. This allows us to have data persistence in our own database.",
+        "tag": "#FrontEnd #API #Application #BackEnd ",
+        "gitRef": "https://github.com/fr3m3n/todo-app"
     }
 ]

@@ -28,5 +28,11 @@
         "points":76,
         "detail":"Understanding the principles of responsive design and ensuring your applications are accessible across various devices and screen sizes.",
         "id":"ex4re"
+    },
+    {
+        "name":"UX/UI",
+        "points":35,
+        "detail":"Creating designs that prioritize user-friendliness, seamless interactions, and aesthetic appeal to enhance the overall experience of a product or service.",
+        "id":"ex5xi"
     }
 ]

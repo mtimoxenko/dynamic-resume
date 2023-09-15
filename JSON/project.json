@@ -3,7 +3,7 @@
         "title": "Front-end Coding Challenge",
         "subtitle":"  Manage",
         "description": "The challenge aims to achieve implementing the correct HTML structure and utilizing semantic tags. Ensuring adaptability for different devices. Implementing forms correctly. Applying Flexbox and adhering to CSS best practices. Utilizing pseudo-elements and pseudo-classes. Incorporating images, icons, fonts, and backgrounds effectively.",
-        "tag": "#FrontEnd #SemanticTagging #ResponsiveDesign",
+        "tag": "#FrontEnd #SemanticTagging #ResponsiveDesign ",
         "gitRef": "https://fr3m3n.github.io/f3-challenge/"
     },
     {
@@ -17,7 +17,14 @@
         "title":"ToDo App",
         "subtitle":"  Task Manager",
         "description": "A classic yet effective task application where we can jot down various activities that we are interested in accomplishing. As is often the case, these tasks remain pending until they are eventually completed. Returning to the technical aspect, we have a frontend that connects to a specifically prepared API to serve as our backend. This allows us to have data persistence in our own database.",
-        "tag": "#FrontEnd #API #Application #BackEnd ",
+        "tag": "#FrontEnd #API #Application ",
         "gitRef": "https://fr3m3n.github.io/todo-app/"
+    },
+    {
+        "title":"DentaCura App",
+        "subtitle":" Dentalcura Clinic Management System",
+        "description": "The Dentalcura Clinic Management System is a Java-based full-stack web application utilizing Spring Boot and Jakarta EE for the backend. HTML, CSS, and JavaScript, along with Spring MVC, compose the frontend, while data persistence is achieved via Hibernate and JPA with an H2 database during development. This system follows RESTful architecture for seamless integration with healthcare systems. ",
+        "tag": "#FullStack #Java #RestAPI ",
+        "gitRef": "https://github.com/fr3m3n/clinic"
     }
 ]

@@ -182,6 +182,8 @@ window.addEventListener('load', function () {
             const div2 = document.createElement("div");
             const divDesktop1 = document.createElement("div");
             const section1 = document.createElement("section");
+            const sectionR = document.createElement("sectionR");
+
             const section2 = document.createElement("section");
             const section3 = document.createElement("section");
             const section4 = document.createElement("section");
@@ -189,6 +191,8 @@ window.addEventListener('load', function () {
             const section6 = document.createElement("section");
             const section7 = document.createElement("section");
             const title1 = document.createElement("h2");
+            const titleR = document.createElement("h2");
+
             const title2 = document.createElement("h2");
             const title3 = document.createElement("h2");
             const title4 = document.createElement("h2");
@@ -198,6 +202,9 @@ window.addEventListener('load', function () {
 
             // nodes tree
             section1.appendChild(title1);
+            sectionR.appendChild(titleR);
+
+
             section2.appendChild(title2);
             section3.appendChild(title3);
             section4.appendChild(title4);
@@ -205,6 +212,8 @@ window.addEventListener('load', function () {
             section6.appendChild(title6);
             section7.appendChild(title7);           
             div1.appendChild(section1);
+            div2.appendChild(sectionR);
+
             divDesktop1.appendChild(section2);
             divDesktop1.appendChild(section3);
             div1.appendChild(divDesktop1);
@@ -224,6 +233,8 @@ window.addEventListener('load', function () {
             div1.setAttribute("id", "leftMain");
             div2.setAttribute("id", "rightMain");
             section1.setAttribute("id", "project");
+            sectionR.setAttribute("id", "projectR");
+
             section2.setAttribute("id", "expertise");
             section3.setAttribute("id", "certification");
             section4.setAttribute("id", "skill");
@@ -231,6 +242,8 @@ window.addEventListener('load', function () {
             section6.setAttribute("id", "language");
             section7.setAttribute("id", "hobbie");
             title1.setAttribute("id", "projectH2");
+            titleR.setAttribute("id", "projectH2R");
+
             title2.setAttribute("id", "expertiseH2");
             title3.setAttribute("id", "certificationH2");
             title4.setAttribute("id", "skillH2");
@@ -243,6 +256,8 @@ window.addEventListener('load', function () {
             div1.classList.add('flex-column', 'gap50');
             div2.classList.add('flex-column', 'gap50');
             section1.classList.add('flex-column','gap15');
+            sectionR.classList.add('flex-column','gap15');
+
             divDesktop1.classList.add('flex-column','gap50');
             section2.classList.add('flex-column','gap15');
             section3.classList.add('flex-column','gap15');
@@ -367,41 +382,86 @@ window.addEventListener('load', function () {
             };
 
             function renderData(data){
-                document.querySelector('#projectH2').textContent = 'PROJECTS';
+                document.querySelector('#projectH2').textContent = '[ FRONT ] projects';
+                document.querySelector('#projectH2R').textContent = '[ BACK ] projects';
 
                 for (let iterator of data) {
-                    const fragment = new DocumentFragment();  
-                    const section = document.querySelector('#project');
-                    const h3 = document.createElement("h3");
-                    const div1 = document.createElement("div");
-                    const div2 = document.createElement("div");
-                    const div5 = document.createElement("div");
-                    const div6 = document.createElement("div");
-                    const a = document.createElement("a");
-                    const p = document.createElement("p");
-                    const span3 = document.createElement("span");
+                    if(iterator.dev == 'front'){
+                        const fragment = new DocumentFragment();  
+                        const section = document.querySelector('#project');
+                        const sectionR = document.querySelector('#projectR');
+                        
+                        const h3 = document.createElement("h3");
+                        const div1 = document.createElement("div");
+                        const div2 = document.createElement("div");
+                        const div5 = document.createElement("div");
+                        const div6 = document.createElement("div");
+                        const a = document.createElement("a");
+                        const p = document.createElement("p");
+                        const span3 = document.createElement("span");
+    
+                        // nodes tree
+                        div2.appendChild(h3);
+                        div2.appendChild(a);
+                        div2.appendChild(span3);
+                        div5.appendChild(p);
+                        div1.appendChild(div2)
+                        div1.appendChild(div5);
+                        div1.appendChild(div6);
+                        fragment.appendChild(div1);
+                        section.appendChild(fragment);
+                        // sectionR.appendChild(fragment);
+    
+                        // atributes
+                        a.textContent = '{ :: }';
+                        a.setAttribute("href", `${iterator.gitRef}`);
+                        a.setAttribute("target", '_blanc');
+                        a.setAttribute("alt", 'GitHub');
+                        h3.textContent = `${iterator.title}`;
+                        span3.textContent = `${iterator.subtitle}`;
+                        p.textContent = `${iterator.description}`;
+                        div1.classList.add('gap5','flex-column');
+                        div6.textContent = `${iterator.tag}`;
 
-                    // nodes tree
-                    div2.appendChild(h3);
-                    div2.appendChild(a);
-                    div2.appendChild(span3);
-                    div5.appendChild(p);
-                    div1.appendChild(div2)
-                    div1.appendChild(div5);
-                    div1.appendChild(div6);
-                    fragment.appendChild(div1);
-                    section.appendChild(fragment);
+                    } else if (iterator.dev == 'back'){
+                        const fragment = new DocumentFragment();  
+                        const section = document.querySelector('#project');
+                        const sectionR = document.querySelector('#projectR');
+                        
+                        const h3 = document.createElement("h3");
+                        const div1 = document.createElement("div");
+                        const div2 = document.createElement("div");
+                        const div5 = document.createElement("div");
+                        const div6 = document.createElement("div");
+                        const a = document.createElement("a");
+                        const p = document.createElement("p");
+                        const span3 = document.createElement("span");
+    
+                        // nodes tree
+                        div2.appendChild(h3);
+                        div2.appendChild(a);
+                        div2.appendChild(span3);
+                        div5.appendChild(p);
+                        div1.appendChild(div2)
+                        div1.appendChild(div5);
+                        div1.appendChild(div6);
+                        fragment.appendChild(div1);
+                        // section.appendChild(fragment);
+                        sectionR.appendChild(fragment);
+    
+                        // atributes
+                        a.textContent = '{ :: }';
+                        a.setAttribute("href", `${iterator.gitRef}`);
+                        a.setAttribute("target", '_blanc');
+                        a.setAttribute("alt", 'GitHub');
+                        h3.textContent = `${iterator.title}`;
+                        span3.textContent = `${iterator.subtitle}`;
+                        p.textContent = `${iterator.description}`;
+                        div1.classList.add('gap5','flex-column');
+                        div6.textContent = `${iterator.tag}`;
 
-                    // atributes
-                    a.textContent = '{ :: }';
-                    a.setAttribute("href", `${iterator.gitRef}`);
-                    a.setAttribute("target", '_blanc');
-                    a.setAttribute("alt", 'GitHub');
-                    h3.textContent = `${iterator.title}`;
-                    span3.textContent = `${iterator.subtitle}`;
-                    p.textContent = `${iterator.description}`;
-                    div1.classList.add('gap5','flex-column');
-                    div6.textContent = `${iterator.tag}`;
+                    }
+
                 }
                 
             }

@@ -30,5 +30,13 @@
         "tag": "#FullStack #Java #RestAPI ",
         "gitRef": "https://github.com/fr3m3n/clinic",
         "dev": "back"
+    },
+    {
+        "title":"IdentityHub",
+        "subtitle":" [ currently working on... 🔭 ]",
+        "description": "IdentityHub is a centralized authentication and authorization microservice built using Spring Security. It provides secure user authentication and authorization functionality that can be easily integrated into other projects as a central identity provider.",
+        "tag": "#Backend #Security #Microservice ",
+        "gitRef": "https://github.com/fr3m3n/IdentityHub",
+        "dev": "back"
     }
 ]

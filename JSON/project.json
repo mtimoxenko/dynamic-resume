@@ -10,7 +10,7 @@
     {
         "title":"Dynamic Resume",
         "subtitle":"  WebPage Resume",
-        "description": "The challenge goes beyond a traditional static document. JavaScript was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
+        "description": "The challenge goes beyond a traditional static document. Vanilla JS was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
         "tag": "#FrontEnd #FetchAPI #DynamicDesign ",
         "gitRef": "https://github.com/fr3m3n/resume",
         "dev": "front"

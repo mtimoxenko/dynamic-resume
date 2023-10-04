@@ -18,12 +18,6 @@
         "href":"https://www.linkedin.com/in/maximo-timochenko/"
     },
     {
-        "iconClass":["fa-regular", "fa-paper-plane"],
-        "medium":"Email",
-        "detail":"contact@stellinelab.com",
-        "href":"mailto:contact@stellinelab.com"
-    },
-    {
         "iconClass":["fa-brands", "fa-github"],
         "medium":"GitHub",
         "detail":"@fr3m3n",

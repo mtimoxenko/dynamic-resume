@@ -2,37 +2,37 @@
     {
         "name":"Continuous Learning",
         "points":73,
-        "detail":"Able to quickly learn new tools and technologies, adapt to changing requirements, and apply them effectively in projects.",
+        "detail":"Ability to swiftly adapt to new tools and technologies, adjust to shifting requirements, and effectively implement them in projects.",
         "id":"ex0co"
     },
     {
-        "name":"Collaboration",
+        "name":"Infrastructure as Code (IaC)",
         "points":87,
-        "detail":"Expertise in working effectively within a development team, collaborating with other developers. Strong communication skills and the ability to effectively articulate and discuss technical concepts.",
+        "detail":"Proficiency in automating and managing infrastructure using code, bypassing manual procedures. Acquainted with tools such as Terraform, Ansible, and CloudFormation.",
         "id":"ex1co"
     },
     {
-        "name":"Accessibility",
+        "name":"Scalability",
         "points":53,
-        "detail":"Understanding and implementing web accessibility standards to ensure your applications are usable by individuals with disabilities.",
+        "detail":"Skilled in efficiently managing the rising demands of a system, application, or process without jeopardizing performance or functionality.",
         "id":"ex2ac"
     },
     {
-        "name":"Agile Methodologies",
-        "points":62,
-        "detail":"Expertise in Agile methodologies such as Scrum or Kanban.",
-        "id":"ex3ag"
-    },
-    {
-        "name":"Responsive Design",
+        "name":"Microservices Architecture",
         "points":76,
-        "detail":"Understanding the principles of responsive design and ensuring your applications are accessible across various devices and screen sizes.",
+        "detail":"Adept at designing modular, independent services that function as discrete entities within a broader system, ensuring improved scalability, maintenance, and fault isolation.",
         "id":"ex4re"
     },
     {
-        "name":"UX/UI",
+        "name":"Cloud Computing & Deployment",
         "points":35,
-        "detail":"Creating designs that prioritize user-friendliness, seamless interactions, and aesthetic appeal to enhance the overall experience of a product or service.",
+        "detail":"Familiar with cloud platforms such as AWS, Azure, and Google Cloud, and the processes of deploying applications on them.",
         "id":"ex5xi"
+    },
+    {
+        "name":"Java Spring Boot",
+        "points":90, 
+        "detail":"Expertise in developing robust and scalable backend applications using Java Spring Boot framework.",
+        "id":"ex6jsb"
     }
 ]

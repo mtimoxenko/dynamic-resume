@@ -1,38 +1,38 @@
 [
     {
-        "name":"Front-End Development",
+        "name":"Containerization",
         "points":50,
-        "detail":"Proficiency in HTML, CSS, and JavaScript framework such as React.",
+        "detail":"Proficient in packaging applications and their dependencies into containers using tools like Docker, ensuring consistent behavior across various environments.",
         "id":"sk1fr"
     },
     {
-        "name":"Back-End Development",
+        "name":"Backend Security",
         "points":60,
-        "detail":"Familiarity with server-side technologies such as Node.js. Understanding how to build APIs and handle data storage (databases).",
+        "detail":"Skilled in implementing security protocols and standards such as OAuth and JWT to safeguard application data and user information.",
         "id":"sk2ba"
     },
     {
         "name":"Database Management",
-        "points":40,
-        "detail":"Knowledge of relational databases (MySQL). Understanding how to design, query, and optimize databases for building scalable and efficient applications.",
+        "points":45,
+        "detail":"Proficiency in relational and NoSQL databases like MySQL and MongoDB. Experienced in designing, querying, and optimizing databases for performance and scalability.",
         "id":"sk3da"
     },
     {
-        "name":"Problem-Solving",
+        "name":"Version Control",
         "points":80,
-        "detail":"Strong problem-solving skills. Able to analyze complex problems, break them down into smaller tasks, and find effective solutions using critical thinking and logical reasoning.",
+        "detail":"Extensive experience with version control systems, especially Git, to track and manage code changes collaboratively.",
         "id":"sk5pr"
     },
     {
-        "name":"Web Services and APIs",
+        "name":"API Design & Development",
         "points":70,
-        "detail":"Understanding how to integrate with external APIs and consume web services. Knowledge of RESTful APIs and the ability to work with JSON/XML data formats.",
+        "detail":"Expertise in designing and developing robust application programming interfaces to ensure efficient communication between software components.",
         "id":"sk6we"
     },
     {
         "name":"Testing and Debugging",
-        "points":35,
-        "detail":"Proficiency in writing unit tests and performing debugging. Familiarity with testing frameworks (e.g., Jest, Pytest) and debugging tools.",
+        "points":40,
+        "detail":"Proficient in writing unit tests using frameworks like JUnit and skilled in debugging applications to ensure optimal performance.",
         "id":"sk7te"
     }
 ]

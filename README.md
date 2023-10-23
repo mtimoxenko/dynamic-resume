@@ -1,48 +1,70 @@
-# Dynamic WebPage Resume - Maximo Timochenko
+# Maximo Timochenko
 
-Welcome to my digital resume! This is not just a traditional CV. Instead, it's a dynamic webpage that brings my experiences, skills, and achievements to life in an interactive and visually appealing manner.
+📍 **Buenos Aires, Argentina**
 
-## Overview
+## Full Stack Developer | Crafting Digital Experiences
 
-I have transformed the conventional static resume into a lively web experience. Leveraging **Vanilla JS** to achieve dynamic functionalities, the site pulls real-time data using the **Fetch API interface**. This allows for seamless updates and an ever-fresh showcase of my professional journey.
+Welcome to my GitHub repository! As a dedicated full-stack developer, I am always eager to dive deep into both frontend and backend technologies. Join me in this endless journey through the digital realm, where we don't just code, but create impactful experiences.
 
+---
 
-### Featured Projects:
-
-1. **Front-end Coding Challenge**: A showcase of skills in HTML structure, semantic tagging, and CSS best practices.
-2. **Dynamic Resume**: The page you're on, is a testament to dynamic web design and asynchronous data rendering.
-3. **ToDo App**: An application highlighting my proficiency in managing and visualizing data.
-
-### Expertise & Skills:
-
-- Front-End Development
-- Back-End Development
-- Database Management
-- Agile Methodologies
-- Responsive Design
-- UX/UI
+### Projects
 
 
-### Certifications:
 
-- CCNA: Introduction to Networks by Cisco
-- JSE - Certified Entry-Level JavaScript Programmer by JS Institute
-- NDG Linux Unhatched by Cisco
-- EF SET English Certificate
+#### Back-end
 
-### Education:
+- **DentaCura App**
+    - Technologies: Java, Spring Boot, Jakarta EE, HTML, CSS, JavaScript, Hibernate, JPA, H2 database, RESTful architecture
+    - [Link to Project](https://github.com/fr3m3n/clinic)
 
-- **University of Buenos Aires**: Focusing on Mathematics and Computer Science, where I built a solid foundation in technical and analytical skills.
-- **Digital House**: Acquired expertise in front-end and back-end development, refining soft skills, and cultivating a professional mindset.
+- **IdentityHub**
+    - Description: Microservice for user authentication & authorization using Spring Security.
+    - [Link to Project](https://github.com/fr3m3n/IdentityHub)
 
 
-### Let's Connect!
 
-I'm always eager to collaborate, learn, and take on new challenges. If you'd like to discuss potential projects or chat about the tech world, feel free to get in touch.
+#### Front-end
 
-## References:
+- **Front-end Coding Challenge**
+    - Focus: HTML, CSS, Semantic Tags, Responsive Design
+    - [Link to Project](https://github.com/fr3m3n/f3-challenge)
 
-- **Mercedes Bosco**: Specialist in Educational Inclusion.  
-  📧 merboscoprofe@gmail.com
-- **Leila Mufari**: Soft Skills Mentor at Digital House.  
-  📧 leila.mufari@digitalhouse.com
+- **Dynamic Resume**
+    - Tools: Vanilla JS, Fetch API
+    - [Link to Project](https://github.com/fr3m3n/resume)
+
+- **ToDo App**
+    - Overview: Task management with front-end and back-end capabilities.
+    - [Link to Project](https://github.com/fr3m3n/todo-app)
+
+---
+
+### Expertise
+
+- Continuous Learning 📘
+- Infrastructure as Code (IaC) ⚙️
+- Scalability 🚀
+- Microservices Architecture 🌐
+- Cloud Computing & Deployment ☁️
+- Java Spring Boot ☕
+
+### Skills
+
+- Containerization 📦
+- Backend Security 🔐
+- Database Management 💽
+- Version Control (Git) 🌳
+- API Design & Development 🔗
+- Testing and Debugging 🐜
+
+### Education
+
+🎓 **University of Buenos Aires** - Degree in Mathematics and Computer Science
+
+---
+
+Feel free to connect with me or explore the projects. Your feedback and collaboration are always appreciated!
+
+**Contact Me:** [Email](mailto:mtimochenko@tutanota.com) | [LinkedIn](https://www.linkedin.com/in/maximo-timochenko/)
+

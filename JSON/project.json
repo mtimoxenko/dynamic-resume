@@ -32,6 +32,14 @@
         "dev": "back"
     },
     {
+        "title":"EC2-Deployer",
+        "subtitle":" AWS EC2 Provisioning and Deployment",
+        "description": "EC2-Deployer is a robust automation tool utilizing Ansible for streamlined provisioning and configuration of AWS EC2 instances. It facilitates secure SSH key management, efficient EC2 instance setup, and quick deployment of local web pages to the cloud, aiming to optimize and simplify AWS EC2 instance management and web hosting tasks.",
+        "tag": "#Ansible #AWS #EC2 #Automation #WebDeployment ",
+        "gitRef": "https://github.com/fr3m3n/ec2-deployer",
+        "dev": "back"
+    },
+    {
         "title":"IdentityHub",
         "subtitle":" [ currently working on... 🔭 ]",
         "description": "IdentityHub is a centralized authentication and authorization microservice built using Spring Security. It provides secure user authentication and authorization functionality that can be easily integrated into other projects as a central identity provider.",

@@ -1,41 +1,41 @@
 [
     {
-        "title": "Front-end Coding Challenge",
+        "title": "Front-end Coding Challenge #1",
         "subtitle":"  Manage",
         "description": "The challenge aims to achieve implementing the correct HTML structure and utilizing semantic tags. Ensuring adaptability for different devices. Implementing forms correctly. Applying Flexbox and adhering to CSS best practices. Utilizing pseudo-elements and pseudo-classes. Incorporating images, icons, fonts, and backgrounds effectively.",
-        "tag": "#FrontEnd #SemanticTagging #ResponsiveDesign ",
-        "gitRef": "https://fr3m3n.github.io/f3-challenge/",
+        "tag": "#SemanticHTML #ResponsiveWebDesign #CSSFlexbox ",
+        "gitRef": "https://fr3m3n.github.io/f1-challenge/",
         "dev": "front"
     },
     {
         "title":"Dynamic Resume",
         "subtitle":"  WebPage Resume",
         "description": "The challenge goes beyond a traditional static document. Vanilla JS was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
-        "tag": "#FrontEnd #FetchAPI #DynamicDesign ",
-        "gitRef": "https://github.com/fr3m3n/resume",
+        "tag": "#VanillaJS #AsyncWebApp #WebDeployment ",
+        "gitRef": "https://github.com/fr3m3n/dynamic-resume",
         "dev": "front"
     },
     {
-        "title":"ToDo App",
+        "title":"Front-end Coding Challenge #2",
         "subtitle":"  Task Manager",
         "description": "A classic yet effective task application where we can jot down various activities that we are interested in accomplishing. As is often the case, these tasks remain pending until they are eventually completed. Returning to the technical aspect, we have a frontend that connects to a specifically prepared API to serve as our backend. This allows us to have data persistence in our own database.",
-        "tag": "#FrontEnd #API #Application ",
-        "gitRef": "https://fr3m3n.github.io/todo-app/",
+        "tag": "#ToDoListApp #InteractiveUI #ClientSideScripting ",
+        "gitRef": "https://github.com/fr3m3n/f2-challenge",
         "dev": "front"
     },
     {
         "title":"DentaCura App",
         "subtitle":" Dentalcura Clinic Management System",
         "description": "The Dentalcura Clinic Management System is a Java-based full-stack web application utilizing Spring Boot and Jakarta EE for the backend. HTML, CSS, and JavaScript, along with Spring MVC, compose the frontend, while data persistence is achieved via Hibernate and JPA with an H2 database during development. This system follows RESTful architecture for seamless integration with healthcare systems. ",
-        "tag": "#FullStack #Java #RestAPI ",
-        "gitRef": "https://github.com/fr3m3n/clinic",
+        "tag": "#HealthcareWebApp #JavaFullStack #RESTfulIntegration ",
+        "gitRef": "https://github.com/fr3m3n/dentalcura-app",
         "dev": "back"
     },
     {
         "title":"EC2-Deployer",
         "subtitle":" AWS EC2 Provisioning and Deployment",
         "description": "EC2-Deployer is a robust automation tool utilizing Ansible for streamlined provisioning and configuration of AWS EC2 instances. It facilitates secure SSH key management, efficient EC2 instance setup, and quick deployment of local web pages to the cloud, aiming to optimize and simplify AWS EC2 instance management and web hosting tasks.",
-        "tag": "#Ansible #AWS #EC2 #Automation #WebDeployment ",
+        "tag": "#CloudAutomation #AnsibleEC2 #WebHostingSolutions ",
         "gitRef": "https://github.com/fr3m3n/ec2-deployer",
         "dev": "back"
     },
@@ -43,8 +43,8 @@
         "title":"IdentityHub",
         "subtitle":" [ currently working on... 🔭 ]",
         "description": "IdentityHub is a centralized authentication and authorization microservice built using Spring Security. It provides secure user authentication and authorization functionality that can be easily integrated into other projects as a central identity provider.",
-        "tag": "#Backend #Security #Microservice ",
-        "gitRef": "https://github.com/fr3m3n/IdentityHub",
+        "tag": "#MicroserviceSecurity #SpringSecurity #IdentityProvider ",
+        "gitRef": "https://github.com/fr3m3n/identity-hub",
         "dev": "back"
     }
 ]

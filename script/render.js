@@ -382,11 +382,11 @@ window.addEventListener('load', function () {
             };
 
             function renderData(data){
-                document.querySelector('#projectH2').textContent = '[ FRONT ] projects';
-                document.querySelector('#projectH2R').textContent = '[ BACK ] projects';
+                document.querySelector('#projectH2').textContent = '[ DEV ] projects';
+                document.querySelector('#projectH2R').textContent = '[ OPS ] tools';
 
                 for (let iterator of data) {
-                    if(iterator.dev == 'front'){
+                    if(iterator.dev == 'dev'){
                         const fragment = new DocumentFragment();  
                         const section = document.querySelector('#project');
                         const sectionR = document.querySelector('#projectR');
@@ -423,7 +423,7 @@ window.addEventListener('load', function () {
                         div1.classList.add('gap5','flex-column');
                         div6.textContent = `${iterator.tag}`;
 
-                    } else if (iterator.dev == 'back'){
+                    } else if (iterator.dev == 'ops'){
                         const fragment = new DocumentFragment();  
                         const section = document.querySelector('#project');
                         const sectionR = document.querySelector('#projectR');

@@ -2,7 +2,7 @@
 
 📍 **Buenos Aires, Argentina**
 
-## Full Stack Developer | Crafting Digital Experiences
+## Dev Enthusiast | Crafting Digital Experiences
 
 Welcome to my GitHub repository! As a dedicated full-stack developer, I am always eager to dive deep into both frontend and backend technologies. Join me in this endless journey through the digital realm, where we don't just code, but create impactful experiences.
 

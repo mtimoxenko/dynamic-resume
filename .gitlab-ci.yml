@@ -1,6 +1,6 @@
 variables:
   IMAGE_NAME: fr3m3n/front-vanilla
-  IMAGE_TAG: front-1.0
+  IMAGE_TAG: front-1.1
 
 stages:
   # - test

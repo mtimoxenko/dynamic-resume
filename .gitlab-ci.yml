@@ -7,22 +7,17 @@ stages:
   - build
   - deploy
 
-    # - apt-get install sudo
-    # - apt-get install wget
 
 test_terraform:
   stage: test
-  image: ubuntu:20.04
   before_script:
-    - apt-get update && apt-get upgrade
-    - apt-get -y -o StrictHostKeyChecking=no install wget
-    - apt-get install sudo
-    - apt-get -y -o StrictHostKeyChecking=no install gnupg
-    - wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-    - echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-    - sudo apt install terraform
+    - apt-get update && apt-get install -y lsb-release gnupg software-properties-common
+    - curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
+    - apt-add-repository "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+    - apt-get update && apt-get install terraform
   script:
     - terraform --version
+
 
 build_image:
   stage: build

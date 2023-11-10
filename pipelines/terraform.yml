@@ -1,0 +1,43 @@
+stages:
+  - validate
+  - plan
+  - apply
+  - destroy
+
+validate:
+  stage: validate
+  script:
+    - terraform init
+    - terraform validate
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - IaC/provisioning/main.tf
+
+plan:
+  stage: plan
+  script:
+    - terraform plan -out=tfplan
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - IaC/provisioning/main.tf
+
+apply:
+  stage: apply
+  script:
+    - terraform apply tfplan
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - IaC/provisioning/main.tf
+
+destroy:
+  stage: destroy
+  script:
+    - terraform destroy -auto-approve
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - IaC/provisioning/main.tf
+      when: manual

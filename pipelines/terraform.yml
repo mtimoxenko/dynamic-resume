@@ -17,7 +17,7 @@ validate:
     name: ${TF_IMAGE}
   before_script:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_PATH}
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform init
     - gitlab-terraform validate
@@ -36,7 +36,7 @@ plan:
   image: ${TF_IMAGE}
   before_script:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_PATH}
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform plan #-out=tfplan
   resource_group: ${TF_STATE_NAME}
@@ -53,7 +53,7 @@ apply:
   image: ${TF_IMAGE}
   before_script:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_PATH}
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform plan-json
     - gitlab-terraform apply #tfplan
@@ -69,7 +69,7 @@ destroy:
   image: ${TF_IMAGE}
   before_script:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_PATH}
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform destroy -auto-approve
   resource_group: ${TF_STATE_NAME}

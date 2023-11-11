@@ -5,29 +5,26 @@ stages:
   - destroy
 
 variables:
-  TF_IMAGE: hashicorp/terraform:1.6.3
+  TF_IMAGE: "$CI_TEMPLATE_REGISTRY_HOST/gitlab-org/terraform-images/releases/1.4:v1.0.0"
   TF_PATH: IaC/provisioning
   TF_STATE_NAME: default
-  TERRAFORM_BACKEND_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/default
-  TERRAFORM_BACKEND_LOCK_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/default/lock
-  TERRAFORM_BACKEND_UNLOCK_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/default/lock
+  SECURE_FILES_DOWNLOAD_PATH: "./terraform"
 
 validate:
   stage: validate
   image: 
     name: ${TF_IMAGE}
-    entrypoint: [""]
   before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_PATH}
   script:
-    - terraform init \
-      -backend-config="address=${TERRAFORM_BACKEND_ADDRESS}" \
-      -backend-config="lock_address=${TERRAFORM_BACKEND_LOCK_ADDRESS}" \
-      -backend-config="unlock_address=${TERRAFORM_BACKEND_UNLOCK_ADDRESS}" \
-      -backend-config="username=gitlab-ci-token" \
-      -backend-config="password=${CI_JOB_TOKEN}"
-    - terraform validate
+    - gitlab-terraform init
+    - gitlab-terraform validate
   resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
+  cache:
+    untracked: true
+    paths:
+      - ${TF_PATH}
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:

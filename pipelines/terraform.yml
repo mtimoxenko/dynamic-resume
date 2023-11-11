@@ -18,6 +18,7 @@ validate:
   image: docker:24-cli
   services:
     - docker:24-dind
+    - hashicorp/terraform:latest
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   script:

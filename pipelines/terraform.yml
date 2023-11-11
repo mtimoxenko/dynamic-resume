@@ -21,11 +21,11 @@ validate:
     - cd ${TF_PATH}
   script:
     - terraform init \
-        -backend-config="address=${TERRAFORM_BACKEND_ADDRESS}" \
-        -backend-config="lock_address=${TERRAFORM_BACKEND_LOCK_ADDRESS}" \
-        -backend-config="unlock_address=${TERRAFORM_BACKEND_UNLOCK_ADDRESS}" \
-        -backend-config="username=gitlab-ci-token" \
-        -backend-config="password=${CI_JOB_TOKEN}"
+      -backend-config="address=${TERRAFORM_BACKEND_ADDRESS}" \
+      -backend-config="lock_address=${TERRAFORM_BACKEND_LOCK_ADDRESS}" \
+      -backend-config="unlock_address=${TERRAFORM_BACKEND_UNLOCK_ADDRESS}" \
+      -backend-config="username=gitlab-ci-token" \
+      -backend-config="password=${CI_JOB_TOKEN}"
     - terraform validate
   resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   rules:

@@ -27,12 +27,12 @@ validate:
       -e CI_JOB_TOKEN=${CI_JOB_TOKEN}
       -v $(pwd)/${TF_PATH}:/workspace
       -w /workspace
-      hashicorp/terraform:1.6.3 init
+      hashicorp/terraform:latest init
     - >
       docker run
       -v $(pwd)/${TF_PATH}:/workspace
       -w /workspace
-      hashicorp/terraform:1.6.3 plan -out=/workspace/plan.tfplan
+      hashicorp/terraform:latest plan -out=/workspace/plan.tfplan
   artifacts:
     paths:
       - ${TF_PATH}/plan.tfplan

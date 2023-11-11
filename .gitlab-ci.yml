@@ -1,16 +1,5 @@
-check_token:
-  stage: test
-  script:
-    - echo "Checking if CI_JOB_TOKEN is set"
-    - |
-      if [ -z "${CI_JOB_TOKEN}" ]; then
-        echo "CI_JOB_TOKEN is not set"
-      else
-        echo "CI_JOB_TOKEN is set"
-      fi
-  only:
-    - branches
 
 
-# include:
-#   - local: '/pipelines/terraform.yml'
+
+include:
+  - local: '/pipelines/terraform.yml'

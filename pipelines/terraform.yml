@@ -11,6 +11,8 @@ variables:
   TF_ROOT: ${CI_PROJECT_DIR}/IaC/provisioning
   SECURE_FILES_DOWNLOAD_PATH: "./terraform"
 
+
+
 validate:
   stage: validate
   image: docker:24-cli
@@ -19,6 +21,7 @@ validate:
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   script:
+    - 'if [ -z "$CI_JOB_TOKEN" ]; then echo "CI_JOB_TOKEN is not set"; else echo "CI_JOB_TOKEN is set"; fi'
     - >
       docker run
       -e CI_JOB_TOKEN=${CI_JOB_TOKEN}

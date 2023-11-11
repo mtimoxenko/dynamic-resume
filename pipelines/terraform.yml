@@ -39,11 +39,22 @@ plan:
     - cd ${TF_ROOT}
   script:
     - gitlab-terraform plan
+  resource_group: ${TF_STATE_NAME}
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - ${TF_PATH}/main.tf
+
+
+plan_json:
+  stage: plan
+  image: ${TF_IMAGE}
+  before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
+    - cd ${TF_ROOT}
+  script:
     - gitlab-terraform plan-json
   resource_group: ${TF_STATE_NAME}
-  # artifacts:
-  #   paths:
-  #     - tfplan
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
@@ -56,8 +67,8 @@ apply:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_ROOT}
   script:
-    - gitlab-terraform plan
-    - gitlab-terraform plan-json
+    # - gitlab-terraform plan
+    # - gitlab-terraform plan-json
     - gitlab-terraform apply
   resource_group: ${TF_STATE_NAME}
   rules:

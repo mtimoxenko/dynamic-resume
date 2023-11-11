@@ -1,5 +1,5 @@
 .gitlab-ci_bkp.yml
-terra.yml
+terraform_bkp.yml
 
 # macOS system files
 .DS_Store

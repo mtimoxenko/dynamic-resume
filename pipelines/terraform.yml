@@ -11,32 +11,16 @@ variables:
   TF_ROOT: ${CI_PROJECT_DIR}/IaC/provisioning
   SECURE_FILES_DOWNLOAD_PATH: "./terraform"
 
-
-
 validate:
   stage: validate
-  image: docker:24-cli
-  services:
-    - docker:24-dind
-    - hashicorp/terraform:latest
-  variables:
-    DOCKER_TLS_CERTDIR: "/certs"
+  image: 
+    name: ${TF_IMAGE}
+  before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
+    - cd ${TF_ROOT}
   script:
-    - 'if [ -z "$CI_JOB_TOKEN" ]; then echo "CI_JOB_TOKEN is not set"; else echo "CI_JOB_TOKEN is set"; fi'
-    - >
-      docker run
-      -e CI_JOB_TOKEN=${CI_JOB_TOKEN}
-      -v $(pwd)/${TF_PATH}:/workspace
-      -w /workspace
-      hashicorp/terraform:latest init
-    - >
-      docker run
-      -v $(pwd)/${TF_PATH}:/workspace
-      -w /workspace
-      hashicorp/terraform:latest plan -out=/workspace/plan.tfplan
-  artifacts:
-    paths:
-      - ${TF_PATH}/plan.tfplan
+    - gitlab-terraform init
+    - gitlab-terraform validate
   resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   cache:
     untracked: true
@@ -54,11 +38,11 @@ plan:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_ROOT}
   script:
-    - gitlab-terraform plan #-out=tfplan
+    - gitlab-terraform plan -out=tfplan
   resource_group: ${TF_STATE_NAME}
-  # artifacts:
-  #   paths:
-  #     - tfplan
+  artifacts:
+    paths:
+      - tfplan
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
@@ -78,7 +62,7 @@ apply:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
         - ${TF_PATH}/main.tf
-      when: manual
+      # when: manual
 
 destroy:
   stage: destroy

@@ -37,11 +37,11 @@ plan:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_PATH}
   script:
-    - gitlab-terraform plan -out=tfplan
+    - gitlab-terraform plan #-out=tfplan
   resource_group: ${TF_STATE_NAME}
-  artifacts:
-    paths:
-      - tfplan
+  # artifacts:
+  #   paths:
+  #     - tfplan
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
@@ -54,7 +54,8 @@ apply:
     - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_PATH}
   script:
-    - gitlab-terraform apply tfplan
+    - gitlab-terraform plan-json
+    - gitlab-terraform apply #tfplan
   resource_group: ${TF_STATE_NAME}
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'

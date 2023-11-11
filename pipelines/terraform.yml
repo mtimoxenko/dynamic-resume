@@ -8,6 +8,9 @@ variables:
   TF_IMAGE: hashicorp/terraform:1.6.3
   TF_PATH: IaC/provisioning
   TF_STATE_NAME: default
+  TERRAFORM_BACKEND_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/default
+  TERRAFORM_BACKEND_LOCK_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/default/lock
+  TERRAFORM_BACKEND_UNLOCK_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/default/lock
 
 validate:
   stage: validate
@@ -17,7 +20,12 @@ validate:
   before_script:
     - cd ${TF_PATH}
   script:
-    - terraform init
+    - terraform init \
+        -backend-config="address=${TERRAFORM_BACKEND_ADDRESS}" \
+        -backend-config="lock_address=${TERRAFORM_BACKEND_LOCK_ADDRESS}" \
+        -backend-config="unlock_address=${TERRAFORM_BACKEND_UNLOCK_ADDRESS}" \
+        -backend-config="username=gitlab-ci-token" \
+        -backend-config="password=${CI_JOB_TOKEN}"
     - terraform validate
   resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   rules:

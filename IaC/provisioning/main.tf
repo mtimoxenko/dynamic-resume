@@ -16,7 +16,7 @@ resource "aws_instance" "web" {
               EOF
 
   tags = {
-    Name = "nginx-ec2-timo"
+    Name = "ec2-nginx-fr3m3n"
   }
 }
 

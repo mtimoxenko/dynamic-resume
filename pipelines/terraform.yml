@@ -13,14 +13,17 @@ variables:
 
 validate:
   stage: validate
-  image: 
-    name: ${TF_IMAGE}
-  before_script:
-    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_ROOT}
+  image: docker:24-cli
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  # before_script:
+  #   - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
+  #   - cd ${TF_ROOT}
   script:
-    - gitlab-terraform init
-    - gitlab-terraform validate
+    - docker run --rm -i -t -v $(pwd):/workspace -w /workspace hashicorp/terraform:1.6.3 init
+    - docker run --rm -i -t -v $(pwd):/workspace -w /workspace hashicorp/terraform:1.6.3 plan
   resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   cache:
     untracked: true

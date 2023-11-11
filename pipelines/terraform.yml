@@ -4,40 +4,65 @@ stages:
   - apply
   - destroy
 
+variables:
+  TF_IMAGE: hashicorp/terraform:1.6.3
+  TF_PATH: IaC/provisioning
+  TF_STATE_NAME: default
+
 validate:
   stage: validate
+  image: ${TF_IMAGE}
+  before_script:
+    - cd ${TF_PATH}
   script:
     - terraform init
     - terraform validate
+  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - IaC/provisioning/main.tf
+        - ${TF_PATH}/main.tf
 
 plan:
   stage: plan
+  image: ${TF_IMAGE}
+  before_script:
+    - cd ${TF_PATH}
   script:
     - terraform plan -out=tfplan
+  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
+  artifacts:
+    paths:
+      - ${TF_PATH}/tfplan
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - IaC/provisioning/main.tf
+        - ${TF_PATH}/main.tf
 
 apply:
   stage: apply
+  image: ${TF_IMAGE}
+  before_script:
+    - cd ${TF_PATH}
   script:
     - terraform apply tfplan
+  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - IaC/provisioning/main.tf
+        - ${TF_PATH}/main.tf
+      when: manual
 
 destroy:
   stage: destroy
+  image: ${TF_IMAGE}
+  before_script:
+    - cd ${TF_PATH}
   script:
     - terraform destroy -auto-approve
+  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - IaC/provisioning/main.tf
+        - ${TF_PATH}/main.tf
       when: manual

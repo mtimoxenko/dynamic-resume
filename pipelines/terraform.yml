@@ -11,13 +11,14 @@ variables:
 
 validate:
   stage: validate
-  # image: ${TF_IMAGE}
+  image: 
+    name: ${TF_IMAGE}
+    entrypoint: [""]
   before_script:
     - cd ${TF_PATH}
   script:
-    - docker run --rm -i -t -v $(pwd):/workspace -w /workspace hashicorp/terraform:latest init
-    # - terraform init
-    # - terraform validate
+    - terraform init
+    - terraform validate
   resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'

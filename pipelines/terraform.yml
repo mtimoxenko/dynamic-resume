@@ -20,13 +20,13 @@ validate:
     DOCKER_TLS_CERTDIR: "/certs"
   script:
     - >
-      docker run --rm
+      docker run
       -e CI_JOB_TOKEN=${CI_JOB_TOKEN}
       -v $(pwd)/${TF_PATH}:/workspace
       -w /workspace
       hashicorp/terraform:1.6.3 init
     - >
-      docker run --rm
+      docker run
       -v $(pwd)/${TF_PATH}:/workspace
       -w /workspace
       hashicorp/terraform:1.6.3 plan -out=/workspace/plan.tfplan

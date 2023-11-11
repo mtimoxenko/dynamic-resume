@@ -8,6 +8,7 @@ variables:
   TF_IMAGE: "$CI_TEMPLATE_REGISTRY_HOST/gitlab-org/terraform-images/releases/1.4:v1.0.0"
   TF_PATH: IaC/provisioning
   TF_STATE_NAME: default
+  TF_ROOT: ${CI_PROJECT_DIR}/IaC/provisioning
   SECURE_FILES_DOWNLOAD_PATH: "./terraform"
 
 validate:

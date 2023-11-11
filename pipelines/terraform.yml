@@ -34,10 +34,11 @@ plan:
   stage: plan
   image: ${TF_IMAGE}
   before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_PATH}
   script:
-    - terraform plan -out=tfplan
-  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
+    - gitlab-terraform plan -out=tfplan
+  resource_group: ${TF_STATE_NAME}
   artifacts:
     paths:
       - ${TF_PATH}/tfplan
@@ -50,10 +51,11 @@ apply:
   stage: apply
   image: ${TF_IMAGE}
   before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_PATH}
   script:
-    - terraform apply tfplan
-  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
+    - gitlab-terraform apply tfplan
+  resource_group: ${TF_STATE_NAME}
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
@@ -64,10 +66,11 @@ destroy:
   stage: destroy
   image: ${TF_IMAGE}
   before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
     - cd ${TF_PATH}
   script:
-    - terraform destroy -auto-approve
-  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
+    - gitlab-terraform destroy -auto-approve
+  resource_group: ${TF_STATE_NAME}
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:

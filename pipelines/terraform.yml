@@ -15,7 +15,7 @@ before_script:
   - cd ${TF_ROOT}
 
 image: ${TF_IMAGE}
-resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
+# resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
 
 validate:
   stage: validate

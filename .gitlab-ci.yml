@@ -3,6 +3,7 @@
 variables:
   TF_IMAGE: hashicorp/terraform:latest
   TF_PATH: IaC/provisioning
+  TF_STATE_NAME: default
 
 terraform-plan:
   image: 
@@ -13,3 +14,4 @@ terraform-plan:
   script:
     - terraform init
     - terraform plan
+  resource_group: ${TF_STATE_NAME}

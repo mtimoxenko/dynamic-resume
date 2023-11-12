@@ -10,18 +10,17 @@ variables:
   TF_STATE_NAME: default
   SECURE_FILES_DOWNLOAD_PATH: "./terraform"
 
-before_script:
-  - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-  - cd ${TF_ROOT}
-
-image: ${TF_IMAGE}
-# resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
-
 validate:
   stage: validate
+  image: 
+    name: ${TF_IMAGE}
+  before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform init
     - gitlab-terraform validate
+  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
   cache:
     untracked: true
     paths:
@@ -33,6 +32,10 @@ validate:
 
 plan:
   stage: plan
+  image: ${TF_IMAGE}
+  before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform plan
   resource_group: ${TF_STATE_NAME}
@@ -43,10 +46,15 @@ plan:
 
 apply:
   stage: apply
+  image: ${TF_IMAGE}
+  before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform plan
     # - gitlab-terraform plan-json
     - gitlab-terraform apply
+  resource_group: ${TF_STATE_NAME}
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
@@ -55,8 +63,13 @@ apply:
 
 destroy:
   stage: destroy
+  image: ${TF_IMAGE}
+  before_script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
+    - cd ${TF_ROOT}
   script:
     - gitlab-terraform destroy -auto-approve
+  resource_group: ${TF_STATE_NAME}
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:

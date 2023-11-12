@@ -5,7 +5,9 @@ variables:
   TF_PATH: IaC/provisioning
 
 terraform-plan:
-  image: ${TF_IMAGE}
+  image: 
+    name: ${TF_IMAGE}
+    entrypoint: [""]
   before_script:
   - cd ${TF_PATH}
   script:

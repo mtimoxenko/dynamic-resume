@@ -10,7 +10,7 @@ terraform-plan:
     name: ${TF_IMAGE}
     entrypoint: [""]
   before_script:
-  - cd ${TF_PATH}
+    - cd ${TF_PATH}
   script:
     - terraform init
     - terraform plan

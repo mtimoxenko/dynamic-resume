@@ -6,9 +6,8 @@ stages:
 
 variables:
   TF_IMAGE: "$CI_TEMPLATE_REGISTRY_HOST/gitlab-org/terraform-images/releases/1.4:v1.0.0"
-  TF_PATH: IaC/provisioning
+  TF_ROOT: IaC/provisioning
   TF_STATE_NAME: default
-  TF_ROOT: ${CI_PROJECT_DIR}/IaC/provisioning
   SECURE_FILES_DOWNLOAD_PATH: "./terraform"
 
 validate:
@@ -25,11 +24,11 @@ validate:
   cache:
     untracked: true
     paths:
-      - ${TF_PATH}
+      - ${TF_ROOT}
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - ${TF_PATH}/main.tf
+        - ${TF_ROOT}/main.tf
 
 plan:
   stage: plan
@@ -43,7 +42,7 @@ plan:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - ${TF_PATH}/main.tf
+        - ${TF_ROOT}/main.tf
 
 apply:
   stage: apply
@@ -59,7 +58,7 @@ apply:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - ${TF_PATH}/main.tf
+        - ${TF_ROOT}/main.tf
       # when: manual
 
 destroy:
@@ -74,5 +73,5 @@ destroy:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - ${TF_PATH}/main.tf
+        - ${TF_ROOT}/main.tf
       when: manual

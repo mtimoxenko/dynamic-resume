@@ -1,77 +1,73 @@
-stages:
-  - validate
-  - plan
-  - apply
-  - destroy
+default:
+  image:
+    name: "$CI_TEMPLATE_REGISTRY_HOST/gitlab-org/terraform-images/stable:latest"
+
+  cache:
+    key: "$CI_PROJECT_DIR-IaC-provisioning"
+    paths:
+      - IaC/provisioning/.terraform/
 
 variables:
-  TF_IMAGE: "$CI_TEMPLATE_REGISTRY_HOST/gitlab-org/terraform-images/releases/1.4:v1.0.0"
-  TF_ROOT: IaC/provisioning
-  TF_STATE_NAME: default
-  SECURE_FILES_DOWNLOAD_PATH: "./terraform"
+  TF_ROOT: "IaC/provisioning/"  # Adjusted path to the Terraform project directory
+  TF_STATE_NAME: default        # The name of the state file used by the GitLab Managed Terraform state backend
 
-validate:
+.terraform:fmt:
   stage: validate
-  image: 
-    name: ${TF_IMAGE}
-  before_script:
-    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_ROOT}
   script:
-    - gitlab-terraform init
+    - cd $TF_ROOT
+    - gitlab-terraform fmt
+  allow_failure: true
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+
+.terraform:validate:
+  stage: validate
+  script:
+    - cd $TF_ROOT
     - gitlab-terraform validate
-  resource_group: ${TF_STATE_NAME} # limit the concurrency of jobs to access shared resource
-  cache:
-    untracked: true
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+
+.terraform:build:
+  stage: build
+  script:
+    - cd $TF_ROOT
+    - gitlab-terraform plan
+    - gitlab-terraform plan-json
+  resource_group: $TF_STATE_NAME
+  artifacts:
+    public: false
     paths:
-      - ${TF_ROOT}
+      - $TF_ROOT/plan.cache
+    reports:
+      terraform: $TF_ROOT/plan.json
   rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - ${TF_ROOT}/main.tf
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
 
-plan:
-  stage: plan
-  image: ${TF_IMAGE}
-  before_script:
-    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_ROOT}
+.terraform:deploy:
+  stage: deploy
   script:
-    - gitlab-terraform plan
-  resource_group: ${TF_STATE_NAME}
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - ${TF_ROOT}/main.tf
-
-apply:
-  stage: apply
-  image: ${TF_IMAGE}
-  before_script:
-    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_ROOT}
-  script:
-    - gitlab-terraform plan
-    # - gitlab-terraform plan-json
+    - cd $TF_ROOT
     - gitlab-terraform apply
-  resource_group: ${TF_STATE_NAME}
+  resource_group: $TF_STATE_NAME
   rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - ${TF_ROOT}/main.tf
-      # when: manual
-
-destroy:
-  stage: destroy
-  image: ${TF_IMAGE}
-  before_script:
-    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | sh
-    - cd ${TF_ROOT}
-  script:
-    - gitlab-terraform destroy -auto-approve
-  resource_group: ${TF_STATE_NAME}
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - ${TF_ROOT}/main.tf
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $TF_AUTO_DEPLOY == "true"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: manual
+
+.terraform:destroy:
+  stage: cleanup
+  script:
+    - cd $TF_ROOT
+    - gitlab-terraform destroy
+  resource_group: $TF_STATE_NAME
+  when: manual

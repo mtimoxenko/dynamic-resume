@@ -1,5 +1,13 @@
+# include:
+#   - local: '/pipelines/terraform.yml'
+variables:
+  TF_IMAGE: hashicorp/terraform:latest
+  TF_PATH: IaC/provisioning
 
-
-
-include:
-  - local: '/pipelines/terraform.yml'
+terraform-plan:
+  image: ${TF_IMAGE}
+  before_script:
+  - cd ${TF_PATH}
+  script:
+    - terraform init
+    - terraform plan

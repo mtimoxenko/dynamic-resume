@@ -8,12 +8,12 @@ stages:
 
 variables:
 
-  PROJECT_ID: "51944352"
-  TF_USERNAME: "frem3n"
-  TF_ADDRESS: "https://gitlab.com/api/v4/projects/${PROJECT_ID}/terraform/state/${TF_STATE_NAME}"
-
+  # PROJECT_ID: "51944352"
+  # TF_USERNAME: "frem3n"
+  TF_ADDRESS: "https://gitlab.com/api/v4/projects/51944352/terraform/state/default"
+  # TF_PASSWORD: 
   TF_PATH: IaC/provisioning
-  TF_STATE_NAME: default
+  # TF_STATE_NAME: default
 
 
 
@@ -25,13 +25,13 @@ image:
 
 
 before_script:
-  - cd $TF_PATH
   - terraform init -backend-config=address=${TF_ADDRESS} -backend-config=lock_address=${TF_ADDRESS}/lock -backend-config=unlock_address=${TF_ADDRESS}/lock -backend-config=username=${TF_USERNAME} -backend-config=password=${TF_PASSWORD} -backend-config=lock_method=POST -backend-config=unlock_method=DELETE -backend-config=retry_wait_min=5
 
 
 
-terraform-validate:
+validate:
   stage: validate
   script:
+    - cd $TF_PATH
     - terraform validate
   resource_group: ${TF_STATE_NAME}

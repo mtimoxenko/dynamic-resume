@@ -1,17 +1,44 @@
 # include:
 #   - local: '/pipelines/terraform.yml'
+
+stages:
+  - validate
+  # - plan
+  # - apply
+
 variables:
-  TF_IMAGE: hashicorp/terraform:latest
+
+  PROJECT_ID: "51944352"
+  TF_USERNAME: "frem3n"
+  TF_ADDRESS: "https://gitlab.com/api/v4/projects/${PROJECT_ID}/terraform/state/${TF_STATE_NAME}"
+
   TF_PATH: IaC/provisioning
   TF_STATE_NAME: default
 
-terraform-plan:
-  image: 
-    name: ${TF_IMAGE}
-    entrypoint: [""]
-  before_script:
-    - cd ${TF_PATH}
+
+
+
+
+image: 
+  name: hashicorp/terraform:1.6
+  entrypoint: [""]
+
+
+before_script:
+  - cd $TF_PATH
+  - terraform init -backend-config=address=${TF_ADDRESS} \
+    -backend-config=lock_address=${TF_ADDRESS}/lock \
+    -backend-config=unlock_address=${TF_ADDRESS}/lock \
+    -backend-config=username=${TF_USERNAME} \
+    -backend-config=password=${TF_PASSWORD} \
+    -backend-config=lock_method=POST \
+    -backend-config=unlock_method=DELETE \
+    -backend-config=retry_wait_min=5
+
+
+
+terraform-validate:
+  stage: validate
   script:
-    - terraform init
-    - terraform plan
+    - terraform validate
   resource_group: ${TF_STATE_NAME}

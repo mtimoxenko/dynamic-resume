@@ -68,7 +68,7 @@ deploy:
   - if: '$CI_COMMIT_BRANCH == "main"'
     changes:
       - ${TF_ROOT}/main.tf
-    when: manual
+    when: manual # blocked
 
 destroy:
   stage: destroy

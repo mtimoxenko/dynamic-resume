@@ -1,73 +1,65 @@
-default:
-  image:
-    name: "$CI_TEMPLATE_REGISTRY_HOST/gitlab-org/terraform-images/stable:latest"
-
-  cache:
-    key: "$CI_PROJECT_DIR-IaC-provisioning"
-    paths:
-      - IaC/provisioning/.terraform/
-
+image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
 variables:
-  TF_ROOT: "IaC/provisioning/"  # Adjusted path to the Terraform project directory
-  TF_STATE_NAME: default        # The name of the state file used by the GitLab Managed Terraform state backend
+  TF_ROOT: IaC/provisioning
+  TF_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume
 
-.terraform:fmt:
+cache:
+  key: example-production
+  paths:
+    - ${TF_ROOT}/.terraform
+
+before_script:
+  - cd ${TF_ROOT}
+  - terraform init \
+    -backend-config="address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume" \
+    -backend-config="lock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock" \
+    -backend-config="unlock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock" \
+    -backend-config="username=frem3n" \
+    -backend-config="password=$TF_TOKEN" \
+    -backend-config="lock_method=POST" \
+    -backend-config="unlock_method=DELETE" \
+    -backend-config="retry_wait_min=5"
+
+
+stages:
+  - prepare
+  - validate
+  - build
+  - deploy
+
+init:
+  stage: prepare
+  script:
+    - gitlab-terraform init
+
+validate:
   stage: validate
   script:
-    - cd $TF_ROOT
-    - gitlab-terraform fmt
-  allow_failure: true
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: $CI_OPEN_MERGE_REQUESTS
-      when: never
-    - if: $CI_COMMIT_BRANCH
-
-.terraform:validate:
-  stage: validate
-  script:
-    - cd $TF_ROOT
+    - gitlab-terraform init
     - gitlab-terraform validate
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: $CI_OPEN_MERGE_REQUESTS
-      when: never
-    - if: $CI_COMMIT_BRANCH
 
-.terraform:build:
+plan:
   stage: build
   script:
-    - cd $TF_ROOT
     - gitlab-terraform plan
     - gitlab-terraform plan-json
-  resource_group: $TF_STATE_NAME
   artifacts:
-    public: false
+    name: plan
     paths:
-      - $TF_ROOT/plan.cache
+      - ${TF_ROOT}/plan.cache
     reports:
-      terraform: $TF_ROOT/plan.json
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: $CI_OPEN_MERGE_REQUESTS
-      when: never
-    - if: $CI_COMMIT_BRANCH
+      terraform: ${TF_ROOT}/plan.json
 
-.terraform:deploy:
+# Separate apply job for manual launching Terraform as it can be destructive
+# action.
+apply:
   stage: deploy
+  environment:
+    name: production
   script:
-    - cd $TF_ROOT
     - gitlab-terraform apply
-  resource_group: $TF_STATE_NAME
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $TF_AUTO_DEPLOY == "true"
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      when: manual
-
-.terraform:destroy:
-  stage: cleanup
-  script:
-    - cd $TF_ROOT
-    - gitlab-terraform destroy
-  resource_group: $TF_STATE_NAME
+  dependencies:
+    - plan
   when: manual
+  only:
+    - master

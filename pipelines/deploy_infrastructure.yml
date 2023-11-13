@@ -63,7 +63,7 @@ deploy_aws_infrastructure:
     - gitlab-terraform apply
   resource_group: $TF_STATE_NAME
   dependencies:
-    - plan
+    - terraform_plan
   rules:
   - if: '$CI_COMMIT_BRANCH == "main"'
     changes:
@@ -76,7 +76,7 @@ destroy_aws_infrastructure:
     - gitlab-terraform destroy -auto-approve
   resource_group: $TF_STATE_NAME
   dependencies:
-    - plan
+    - terraform_plan
   rules:
   - if: '$CI_COMMIT_BRANCH == "main"'
     changes:

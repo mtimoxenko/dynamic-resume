@@ -20,6 +20,10 @@ build_image:
     - cd ..
     - docker build -t $IMAGE_NAME:$IMAGE_TAG .
     - docker push $IMAGE_NAME:$IMAGE_TAG
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - index.html
 
 deploy_aws:
   stage: deploy
@@ -30,3 +34,7 @@ deploy_aws:
         sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD &&
         sudo docker ps -aq | xargs sudo docker stop | xargs sudo docker rm &&
         sudo docker run -d -p 80:80 $IMAGE_NAME:$IMAGE_TAG"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - index.html

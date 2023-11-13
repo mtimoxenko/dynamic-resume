@@ -1,2 +1,3 @@
 include:
-  - local: '/pipelines/terraform.yml'
+  - local: '/pipelines/deploy_infrastructure.yml'
+  - local: '/pipelines/deliver_frontend.yml'

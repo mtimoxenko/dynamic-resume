@@ -7,7 +7,7 @@ resource "aws_instance" "web" {
               #!/bin/bash
               yum update -y
               yum install -y nginx
-              echo "<h1>Hello from Terraform</h1>" > /usr/share/nginx/html/index.html
+              echo "<h1>GitLab[+]Terraform CI/CD pipeline</h1>" > /usr/share/nginx/html/index.html
               systemctl start nginx
               systemctl enable nginx
               EOF

@@ -65,8 +65,8 @@ plan:
 #   only:
 #     - master
 
-apply:
-  stage: apply
+deploy:
+  stage: deploy
   script:
     # - gitlab-terraform plan-json
     - gitlab-terraform apply

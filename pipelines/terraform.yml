@@ -1,10 +1,9 @@
 image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
 
-default:
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - ${TF_PATH}/main.tf
+rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+    changes:
+      - ${TF_PATH}/main.tf
 
 variables:
   TF_STATE_NAME: dynamic-resume

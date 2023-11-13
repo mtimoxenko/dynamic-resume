@@ -74,10 +74,10 @@ deploy:
     - plan
   when: manual
 
-# destroy:
-#   stage: destroy
-#   script:
-#     - gitlab-terraform destroy -auto-approve
-#   dependencies:
-#     - plan
-#   when: manual
+destroy:
+  stage: destroy
+  script:
+    - gitlab-terraform destroy -auto-approve
+  dependencies:
+    - plan
+  when: manual

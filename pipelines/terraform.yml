@@ -1,9 +1,6 @@
 image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
 
-rules:
-  - if: '$CI_COMMIT_BRANCH == "main"'
-    changes:
-      - ${TF_PATH}/main.tf
+
 
 variables:
   TF_STATE_NAME: dynamic-resume
@@ -28,6 +25,10 @@ init:
   script:
     - gitlab-terraform init
   resource_group: $TF_STATE_NAME
+  rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+    changes:
+      - ${TF_PATH}/main.tf
 
 validate:
   stage: validate
@@ -35,6 +36,10 @@ validate:
     - gitlab-terraform init
     - gitlab-terraform validate
   resource_group: $TF_STATE_NAME
+  rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+    changes:
+      - ${TF_PATH}/main.tf
 
 plan:
   stage: plan
@@ -48,6 +53,10 @@ plan:
       - ${TF_ROOT}/plan.cache
     reports:
       terraform: ${TF_ROOT}/plan.json
+  rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+    changes:
+      - ${TF_PATH}/main.tf
 
 
 deploy:
@@ -57,7 +66,11 @@ deploy:
   resource_group: $TF_STATE_NAME
   dependencies:
     - plan
-  when: manual
+  rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+    changes:
+      - ${TF_PATH}/main.tf
+    when: manual
 
 destroy:
   stage: destroy
@@ -66,4 +79,8 @@ destroy:
   resource_group: $TF_STATE_NAME
   dependencies:
     - plan
+  rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+    changes:
+      - ${TF_PATH}/main.tf
   when: manual

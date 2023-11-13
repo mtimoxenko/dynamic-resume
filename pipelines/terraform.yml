@@ -10,22 +10,23 @@ variables:
 
 before_script:
   - cd ${TF_ROOT}
-  # - terraform init
-  #   -backend-config="address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume"
-  #   -backend-config="lock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
-  #   -backend-config="unlock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
-  #   -backend-config="username=frem3n"
-  #   -backend-config="password=$TF_TOKEN"
-  #   -backend-config="lock_method=POST"
-  #   -backend-config="unlock_method=DELETE"
-  #   -backend-config="retry_wait_min=5"
+  - terraform init
+    -backend-config="address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume"
+    -backend-config="lock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
+    -backend-config="unlock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
+    -backend-config="username=frem3n"
+    -backend-config="password=$TF_TOKEN"
+    -backend-config="lock_method=POST"
+    -backend-config="unlock_method=DELETE"
+    -backend-config="retry_wait_min=5"
 
 
 stages:
   - prepare
   - validate
-  - build
+  - plan
   - deploy
+  - destroy
 
 init:
   stage: prepare
@@ -39,7 +40,7 @@ validate:
     - gitlab-terraform validate
 
 plan:
-  stage: build
+  stage: plan
   script:
     - gitlab-terraform plan
     - gitlab-terraform plan-json

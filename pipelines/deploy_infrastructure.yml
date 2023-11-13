@@ -18,7 +18,7 @@ stages:
   - deploy
   - destroy
 
-init:
+terraform_init:
   stage: prepare
   script:
     - gitlab-terraform init
@@ -28,7 +28,7 @@ init:
     changes:
       - ${TF_ROOT}/main.tf
 
-validate:
+terraform_validate:
   stage: validate
   script:
     - gitlab-terraform init
@@ -39,7 +39,7 @@ validate:
     changes:
       - ${TF_ROOT}/main.tf
 
-plan:
+terraform_plan:
   stage: plan
   script:
     - gitlab-terraform plan
@@ -57,7 +57,7 @@ plan:
       - ${TF_ROOT}/main.tf
 
 
-deploy:
+deploy_aws_infrastructure:
   stage: deploy
   script:
     - gitlab-terraform apply
@@ -70,7 +70,7 @@ deploy:
       - ${TF_ROOT}/main.tf
     when: manual # blocked
 
-destroy:
+destroy_aws_infrastructure:
   stage: destroy
   script:
     - gitlab-terraform destroy -auto-approve

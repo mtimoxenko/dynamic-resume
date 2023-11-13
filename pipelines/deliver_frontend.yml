@@ -7,7 +7,7 @@ stages:
   - deploy
 
 
-build_image:
+build_docker_image:
   stage: build
   image: docker:24-cli
   services:
@@ -25,7 +25,7 @@ build_image:
       changes:
         - index.html
 
-deploy_aws:
+deploy_docker_aws:
   stage: deploy
   before_script:
     - chmod 400 $SSH_KEY

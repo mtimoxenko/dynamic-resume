@@ -1,3 +1,11 @@
+stages:
+  - prepare
+  - build
+  - validate
+  - plan
+  - deploy
+  - destroy
+
 include:
   - local: '/pipelines/deploy_infrastructure.yml'
   - local: '/pipelines/deliver_frontend.yml'

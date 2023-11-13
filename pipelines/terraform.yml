@@ -1,18 +1,17 @@
-default:
-  image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
-  cache:
-    key: "${CI_COMMIT_REF_SLUG}"
-    paths:
-      - ${TF_ROOT}/.terraform
-
-
+image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
 variables:
   TF_ROOT: IaC/provisioning
   TF_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume
 
+# cache:
+#   key: example-production
+#   paths:
+#     - ${TF_ROOT}/.terraform
+
 before_script:
   - cd ${TF_ROOT}
   - sh ./init.sh  # Calls your init.sh script
+
 
 stages:
   - prepare
@@ -20,7 +19,6 @@ stages:
   - plan
   - deploy
   - destroy
-
 
 init:
   stage: prepare
@@ -44,6 +42,7 @@ plan:
       - ${TF_ROOT}/plan.cache
     reports:
       terraform: ${TF_ROOT}/plan.json
+
 
 deploy:
   stage: deploy

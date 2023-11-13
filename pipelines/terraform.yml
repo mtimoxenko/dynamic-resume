@@ -10,15 +10,16 @@ variables:
 
 before_script:
   - cd ${TF_ROOT}
-  - terraform init
-    -backend-config="address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume"
-    -backend-config="lock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
-    -backend-config="unlock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
-    -backend-config="username=frem3n"
-    -backend-config="password=$TF_TOKEN"
-    -backend-config="lock_method=POST"
-    -backend-config="unlock_method=DELETE"
-    -backend-config="retry_wait_min=5"
+  - sh ./init.sh  # Calls your init.sh script
+  # - terraform init
+  #   -backend-config="address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume"
+  #   -backend-config="lock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
+  #   -backend-config="unlock_address=https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume/lock"
+  #   -backend-config="username=frem3n"
+  #   -backend-config="password=$TF_TOKEN"
+  #   -backend-config="lock_method=POST"
+  #   -backend-config="unlock_method=DELETE"
+  #   -backend-config="retry_wait_min=5"
 
 
 stages:
@@ -51,19 +52,6 @@ plan:
     reports:
       terraform: ${TF_ROOT}/plan.json
 
-# Separate apply job for manual launching Terraform as it can be destructive
-# action.
-# apply:
-#   stage: deploy
-#   environment:
-#     name: production
-#   script:
-#     - gitlab-terraform apply
-#   dependencies:
-#     - plan
-#   when: manual
-#   only:
-#     - master
 
 deploy:
   stage: deploy

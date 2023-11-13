@@ -1,16 +1,13 @@
 image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
 variables:
+  TF_STATE_NAME: dynamic-resume
   TF_ROOT: IaC/provisioning
-  TF_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/dynamic-resume
+  TF_ADDRESS: https://gitlab.com/api/v4/projects/51944352/terraform/state/$TF_STATE_NAME
 
-# cache:
-#   key: example-production
-#   paths:
-#     - ${TF_ROOT}/.terraform
 
 before_script:
-  - cd ${TF_ROOT}
-  - sh ./init.sh  # Calls your init.sh script
+  - cd $TF_ROOT
+  - sh ./init.sh
 
 
 stages:
@@ -24,18 +21,21 @@ init:
   stage: prepare
   script:
     - gitlab-terraform init
+  resource_group: $TF_STATE_NAME
 
 validate:
   stage: validate
   script:
     - gitlab-terraform init
     - gitlab-terraform validate
+  resource_group: $TF_STATE_NAME
 
 plan:
   stage: plan
   script:
     - gitlab-terraform plan
     - gitlab-terraform plan-json
+  resource_group: $TF_STATE_NAME
   artifacts:
     name: plan
     paths:
@@ -48,6 +48,7 @@ deploy:
   stage: deploy
   script:
     - gitlab-terraform apply
+  resource_group: $TF_STATE_NAME
   dependencies:
     - plan
   when: manual
@@ -56,6 +57,7 @@ destroy:
   stage: destroy
   script:
     - gitlab-terraform destroy -auto-approve
+  resource_group: $TF_STATE_NAME
   dependencies:
     - plan
   when: manual

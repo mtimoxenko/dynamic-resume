@@ -1,0 +1,31 @@
+variables:
+  IMAGE_NAME: fr3m3n/front-vanilla
+  IMAGE_TAG: stellinelab-1.0.0
+
+stages:
+  - build
+  - deploy
+
+
+build_image:
+  stage: build
+  image: docker:24-cli
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+  script:
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker push $IMAGE_NAME:$IMAGE_TAG
+
+deploy_aws:
+  stage: deploy
+  before_script:
+    - chmod 400 $SSH_KEY
+  script: 
+    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@54.162.20.52 "
+        sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD &&
+        sudo docker ps -aq | xargs sudo docker stop | xargs sudo docker rm &&
+        sudo docker run -d -p 80:80 $IMAGE_NAME:$IMAGE_TAG"

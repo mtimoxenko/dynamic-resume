@@ -3,12 +3,12 @@ variables:
   IMAGE_TAG: stellinelab-1.0.0
 
 stages:
-  - build
-  - deploy
+  - build_image
+  - deploy_image
 
 
 build_docker_image:
-  stage: build
+  stage: build_image
   image: docker:24-cli
   services:
     - docker:24-dind
@@ -25,7 +25,7 @@ build_docker_image:
         - index.html
 
 deploy_docker_aws:
-  stage: deploy
+  stage: deploy_image
   before_script:
     - chmod 400 $SSH_KEY
   script: 

@@ -1,11 +1,11 @@
 stages:
-  - configure
+  - configure_infra
 
 variables:
   ANSIBLE_PATH: IaC/config
 
 ansible_configure:
-  stage: configure
+  stage: configure_infra
   image: williamyeh/ansible:alpine3
   dependencies:
     - deploy_aws_infrastructure
@@ -18,5 +18,5 @@ ansible_configure:
     - ansible-playbook -i hosts.ini playbook.yml
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-    - changes:
+      changes:
         - ${ANSIBLE_PATH}/* # Only run if changes in the Ansible directory

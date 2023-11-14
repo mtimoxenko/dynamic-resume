@@ -12,14 +12,14 @@ before_script:
 
 
 stages:
-  - prepare
-  - validate
-  - plan
-  - deploy
-  - destroy
+  - prepare_tf
+  - validate_tf
+  - plan_tf
+  - deploy_tf
+  - destroy_tf
 
 terraform_init:
-  stage: prepare
+  stage: prepare_tf
   script:
     - gitlab-terraform init
   resource_group: $TF_STATE_NAME # limit the concurrency of jobs to access shared resource
@@ -29,7 +29,7 @@ terraform_init:
       - ${TF_ROOT}/main.tf
 
 terraform_validate:
-  stage: validate
+  stage: validate_tf
   script:
     - gitlab-terraform init
     - gitlab-terraform validate
@@ -40,7 +40,7 @@ terraform_validate:
       - ${TF_ROOT}/main.tf
 
 terraform_plan:
-  stage: plan
+  stage: plan_tf
   script:
     - gitlab-terraform plan
     - gitlab-terraform plan-json
@@ -58,7 +58,7 @@ terraform_plan:
 
 
 deploy_aws_infrastructure:
-  stage: deploy
+  stage: deploy_tf
   script:
     - gitlab-terraform apply
     - echo "Extracting EC2 instance public IP..."
@@ -76,10 +76,10 @@ deploy_aws_infrastructure:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
         - ${TF_ROOT}/main.tf
-      when: manual # blocked
+      # when: manual # blocked
 
 destroy_aws_infrastructure:
-  stage: destroy
+  stage: destroy_tf
   script:
     - gitlab-terraform destroy -auto-approve
   resource_group: $TF_STATE_NAME

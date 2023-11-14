@@ -1,0 +1,10 @@
+---
+- hosts: dev
+  become: true
+  remote_user: ubuntu
+  tasks:
+    - name: Installing nginx
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes

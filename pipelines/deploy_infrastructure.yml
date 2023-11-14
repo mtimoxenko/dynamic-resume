@@ -73,7 +73,12 @@ deploy_aws_infrastructure:
     - pwd
     - ls -l
     - echo "Generating Ansible inventory file..."
+    - cat hosts.j2
+    - cat hosts.ini
     - sed "s/{{ ec2_public_ip }}/$EC2_PUBLIC_IP/" hosts.j2 > hosts.ini
+    - ls -l
+    - cat hosts.j2
+    - cat hosts.ini
   artifacts:
     paths:
       - ${ANSIBLE_PATH}/hosts.ini  

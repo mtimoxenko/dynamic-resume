@@ -1,11 +1,11 @@
 stages:
-  - prepare   # Terraform [pipeline]
-  - build     # Front [pipeline]
-  - validate  # Terraform [pipeline]
-  - plan      # Terraform [pipeline]
-  - configure # Ansible [pipeline]
-  - deploy    # Terraform_Front [pipeline]
-  - destroy   # Terraform [pipeline]
+  - prepare   # [Terraform] pipeline
+  - build     # [Frontend] pipeline
+  - validate  # [Terraform] pipeline
+  - plan      # [Terraform] pipeline
+  - configure # [Ansible] pipeline
+  - deploy    # [Terraform, Frontend] pipeline
+  - destroy   # [Terraform] pipeline
 
 include:
   - local: '/pipelines/deploy_infrastructure.yml'

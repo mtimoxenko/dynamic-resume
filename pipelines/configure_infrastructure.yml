@@ -1,0 +1,22 @@
+stages:
+  - configure
+
+variables:
+  ANSIBLE_PATH: IaC/config
+
+ansible_configure:
+  stage: configure
+  image: williamyeh/ansible:alpine3
+  dependencies:
+    - deploy_aws_infrastructure
+  before_script:
+    - ansible --version
+    - echo "Initialize Ansible configuration..."
+    # Initialize Ansible, e.g., configure hosts, variables, etc.
+    - cd $ANSIBLE_PATH
+  script:
+    - ansible-playbook -i hosts.ini playbook.yml
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - changes:
+        - ${ANSIBLE_PATH}/* # Only run if changes in the Ansible directory

@@ -16,6 +16,7 @@ ansible_configure:
     - cd $ANSIBLE_PATH
     - chmod 400 $SSH_KEY_DH
   script:
+    - export ANSIBLE_HOST_KEY_CHECKING=False
     - ansible-playbook -i hosts.ini playbook.yml --private-key=$SSH_KEY_DH
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'

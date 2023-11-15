@@ -1,4 +1,5 @@
 variables:
+  ANSIBLE_PATH: IaC/config
   IMAGE_NAME: fr3m3n/front-vanilla
   IMAGE_TAG: stellinelab-1.0.0
 

@@ -36,3 +36,19 @@
         name: docker
         state: started
         enabled: yes
+
+    - name: Install Docker Compose
+      get_url:
+        url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
+        dest: "/usr/local/bin/docker-compose"
+        mode: 'u+x,g+x'  # This sets the execute permissions for the user and group
+      vars:
+        docker_compose_version: "1.29.2"  # Specify the version of Docker Compose you want to install
+
+    - name: Verify Docker Compose installation
+      command: docker-compose --version
+      register: docker_compose_version_output
+
+    - name: Output Docker Compose version
+      debug:
+        var: docker_compose_version_output.stdout_lines

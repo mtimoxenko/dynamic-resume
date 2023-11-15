@@ -14,10 +14,10 @@ ansible_configure:
     - echo "Initialize Ansible configuration..."
     # Initialize Ansible, e.g., configure hosts, variables, etc.
     - cd $ANSIBLE_PATH
-    - chmod 400 $SSH_KEY_DH
+    - chmod 400 $SSH_KEY
   script:
     - export ANSIBLE_HOST_KEY_CHECKING=False
-    - ansible-playbook -i hosts.ini playbook.yml --private-key=$SSH_KEY_DH
+    - ansible-playbook -i hosts.ini playbook.yml --private-key=$SSH_KEY
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:

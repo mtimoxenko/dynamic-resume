@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   ami           = "ami-0fc5d935ebf8bc3bc" # Ubuntu Server 22.04 LTS
   instance_type = "t2.micro"
-  key_name      = "fr3m3n2" # assigned key pair at launch
+  key_name      = "fr3m3n" # assigned key pair at launch
 
   # user_data = <<-EOF
   #             #!/bin/bash

@@ -3,8 +3,8 @@
   become: true
   remote_user: ubuntu
   vars:
-    dockerhub_username: $DOCKERHUB_USERNAME # Set your DockerHub username
-    dockerhub_password: $DOCKERHUB_PASSWORD  # Set your DockerHub password
+    dockerhub_username: "{{ lookup('env', 'DOCKERHUB_USERNAME') }}" # Set your DockerHub username
+    dockerhub_password: "{{ lookup('env', 'DOCKERHUB_PASSWORD') }}"  # Set your DockerHub password
     image_name: "fr3m3n/front-vanilla"                  # Set your Docker image name
     image_tag: "stellinelab-1.0.0"                    # Set your Docker image tag
 

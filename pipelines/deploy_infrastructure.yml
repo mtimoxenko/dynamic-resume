@@ -65,6 +65,7 @@ deploy_aws_infrastructure:
     - echo "Extracting EC2 instance public IP..."
     - export EC2_PUBLIC_IP=$(gitlab-terraform output -raw ec2_public_ip)
     - echo "EC2 Public IP -> [ $EC2_PUBLIC_IP ]"
+    - echo $EC2_PUBLIC_IP > $ANSIBLE_PATH/ec2_ip.txt
     - pwd
     - cd ..
     - pwd
@@ -81,7 +82,8 @@ deploy_aws_infrastructure:
     - cat hosts.ini
   artifacts:
     paths:
-      - ${ANSIBLE_PATH}/hosts.ini  
+      - ${ANSIBLE_PATH}/hosts.ini
+      - ${ANSIBLE_PATH}/ec2_ip.txt
   resource_group: $TF_STATE_NAME
   dependencies:
     - terraform_plan

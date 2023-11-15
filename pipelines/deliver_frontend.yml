@@ -26,10 +26,13 @@ build_docker_image:
 
 deploy_docker_aws:
   stage: deploy_image
+  dependencies:
+    - deploy_aws_infrastructure  # This ensures it can use artifacts from the deploy_aws_infrastructure job
   before_script:
     - chmod 400 $SSH_KEY
+    - EC2_PUBLIC_IP=$(cat $ANSIBLE_PATH/ec2_ip.txt)  # Read the IP address into a variable
   script: 
-    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@54.162.20.52 "
+    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@$EC2_PUBLIC_IP "
         sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD &&
         sudo docker ps -aq | xargs sudo docker stop | xargs sudo docker rm &&
         sudo docker run -d -p 80:80 $IMAGE_NAME:$IMAGE_TAG"

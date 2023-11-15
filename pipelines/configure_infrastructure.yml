@@ -19,7 +19,7 @@ ansible_configure:
     - export ANSIBLE_HOST_KEY_CHECKING=False
     - ansible all -i hosts.ini -m raw -a 'python3 --version' --private-key=$SSH_KEY -u ubuntu
     - python3 --version
-    - ansible-playbook -i hosts.ini playbook.yml --private-key=$SSH_KEY -u ubuntu
+    - ansible-playbook -i hosts.ini config_infra.yml --private-key=$SSH_KEY -u ubuntu
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:

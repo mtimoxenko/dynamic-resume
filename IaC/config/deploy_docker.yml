@@ -1,0 +1,23 @@
+---
+- hosts: dev
+  become: true
+  remote_user: ubuntu
+  tasks:
+    - name: Log in to DockerHub
+      docker_login:
+        username: "{{ dockerhub_username }}"
+        password: "{{ dockerhub_password }}"
+
+    - name: Stop and remove all Docker containers
+      docker_container:
+        name: "{{ item }}"
+        state: absent
+      with_items: "{{ docker_ps_aq.stdout_lines }}"
+
+    - name: Run a new Docker container
+      docker_container:
+        name: my_container
+        image: "{{ image_name }}:{{ image_tag }}"
+        state: started
+        ports:
+          - "80:80"

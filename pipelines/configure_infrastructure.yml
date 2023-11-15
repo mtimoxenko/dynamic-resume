@@ -6,7 +6,7 @@ variables:
 
 ansible_configure:
   stage: configure_infra
-  image: williamyeh/ansible:alpine3
+  image: alpinelinux/ansible:latest
   dependencies:
     - deploy_aws_infrastructure
   before_script:

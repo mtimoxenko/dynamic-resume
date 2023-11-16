@@ -15,4 +15,4 @@
 
 
 include:
-  - remote: 'https://gitlab.com/frem3n/dynamic-resume-cicd/test.yml'
+  - remote: 'https://gitlab.com/frem3n/dynamic-resume-cicd/-/blob/main/test.yml'

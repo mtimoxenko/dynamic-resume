@@ -12,7 +12,3 @@
 #   - local: '/pipelines/deploy_infrastructure.yml'
 #   - local: '/pipelines/configure_infrastructure.yml'
 #   - local: '/pipelines/deliver_frontend.yml'
-
-
-include:
-  - remote: 'https://gitlab.com/frem3n/dynamic-resume-cicd/-/blob/main/test.yml'

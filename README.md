@@ -27,6 +27,24 @@ Dynamic Resume is a web-based application that transcends the limitations of a t
 ## Usage
 To experience the Dynamic Resume, visit [Stelline Lab](https://stellinelab.io/).
 
+## Docker Container
+
+The project includes a Dockerfile for easy deployment using Docker and Nginx. Follow these steps to build and run the Docker container:
+
+1. **Build the Docker image**:
+   ```
+   docker build -t dynamic-resume .
+   ```
+   This command will use the `Dockerfile` in the project directory to build the Docker image, tagging it as `dynamic-resume`.
+
+2. **Run the Docker container**:
+   ```
+   docker run -d -p 80:80 dynamic-resume
+   ```
+   This will start a container based on the `dynamic-resume` image. The `-d` flag runs the container in detached mode, leaving the container running in the background. The `-p` flag publishes the container's port 80 to the external port 80 on the host.
+
+Visit `http://localhost` in your web browser to view the Dynamic Resume web application.
+
 ## Contributing
 Contributions to enhance the Dynamic Resume are welcome. Please follow these steps:
 1. Fork the repository.

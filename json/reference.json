@@ -1,16 +1,16 @@
 [
     {
-        "name":"Mercedes Bosco",
-        "role":"Specialist in Educational Inclusion",
-        "email":"merboscoprofe@gmail.com",
-        "www":"https://www.digitalhouse.com/ar",
-        "address":"Av. Monroe 860, C1428BKD CABA"
+        "name":"Damian Colaneri",
+        "role":"Cloud/infrastructure engineer.",
+        "email":"dcolaneri@gmail.com",
+        "www":"https://www.t3tic.com.ar/",
+        "address":"Ballester. Buenos Aires, Argentina."
     },
     {
-        "name":"Leila Mufari",
-        "role":"Soft Kills Mentor - Latam",
-        "email":"leila.mufari@digitalhouse.com",
-        "www":"https://www.digitalhouse.com/ar",
-        "address":"Av. Monroe 860, C1428BKD CABA"
+        "name":"Lucas Frangueli",
+        "role":"Coordinador NOC-MEDIA - TELECOM Arg.",
+        "email":"ljfrangueli@teco.com.ar",
+        "www":"https://www.telecom.com.ar/",
+        "address":"Av. Dorrego 2520 - Buenos Aires,Argentina"
     }
 ]

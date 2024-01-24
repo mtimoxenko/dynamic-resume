@@ -1,26 +1,10 @@
 [
     {
-        "title": "Front-end Coding Challenge #1",
-        "subtitle":"  Manage",
-        "description": "The challenge aims to achieve implementing the correct HTML structure and utilizing semantic tags. Ensuring adaptability for different devices. Implementing forms correctly. Applying Flexbox and adhering to CSS best practices. Utilizing pseudo-elements and pseudo-classes. Incorporating images, icons, fonts, and backgrounds effectively.",
-        "tag": "#SemanticHTML #ResponsiveWebDesign #CSSFlexbox ",
-        "gitRef": "https://fr3m3n.github.io/f1-challenge/",
-        "dev": "dev"
-    },
-    {
-        "title":"Front-end Coding Challenge #2",
-        "subtitle":"  Task Manager",
-        "description": "A classic yet effective task application where we can jot down various activities that we are interested in accomplishing. As is often the case, these tasks remain pending until they are eventually completed. Returning to the technical aspect, we have a frontend that connects to a specifically prepared API to serve as our backend. This allows us to have data persistence in our own database.",
-        "tag": "#ToDoListApp #InteractiveUI #ClientSideScripting ",
-        "gitRef": "https://github.com/fr3m3n/f2-challenge",
-        "dev": "dev"
-    },
-    {
-        "title":"Dynamic Resume",
-        "subtitle":"  WebPage Resume",
-        "description": "The challenge goes beyond a traditional static document. Vanilla JS was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
-        "tag": "#VanillaJS #AsyncWebApp #WebDeployment ",
-        "gitRef": "https://github.com/fr3m3n/dynamic-resume",
+        "title": "Task Manager Web Application",
+        "subtitle": "Organize Your Tasks Efficiently",
+        "description": "Task Manager App designed with a JavaScript, CSS, and HTML frontend for a dynamic user experience. The Java-based backend with Spring Boot and JPA ensures robust data handling and RESTful API integration. Containerized with Docker and orchestrated via GitLab CI/CD pipelines for automated builds and deployment. Infrastructure managed by Terraform and configured with Ansible for reliable AWS EC2 provisioning.",
+        "tag": "#TaskManagement #SpringBoot #DevOps",
+        "gitRef": "https://gitlab.com/frem3n/media-workbench",
         "dev": "dev"
     },
     {
@@ -32,11 +16,11 @@
         "dev": "dev"
     },
     {
-        "title":"Back-end Coding Challenge #1",
-        "subtitle":" IdentityHub [ currently working on... 🔭 ]",
-        "description": "IdentityHub is a centralized authentication and authorization microservice built using Spring Security. It provides secure user authentication and authorization functionality that can be easily integrated into other projects as a central identity provider.",
-        "tag": "#MicroserviceSecurity #SpringSecurity #IdentityProvider ",
-        "gitRef": "https://github.com/fr3m3n/identity-hub",
+        "title":"Dynamic Resume",
+        "subtitle":"  WebPage Resume",
+        "description": "The challenge goes beyond a traditional static document. Vanilla JS was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
+        "tag": "#VanillaJS #AsyncWebApp #WebDeployment ",
+        "gitRef": "https://github.com/fr3m3n/dynamic-resume",
         "dev": "dev"
     },
     {

@@ -2,7 +2,7 @@
     "name":"MAXIMO",
     "surname":"TIMOCHENKO",
     "profession":"Dev Enthusiast | Crafting Digital Experiences",
-    "about":"Welcome! My adventure is fueled by a boundless enthusiasm for discovering and mastering backend technologies, where I meticulously craft scalable and resilient digital infrastructures. In the spirit of collaboration and collective innovation, I believe in uniting our creative minds to navigate the complexities of technology, bringing transformative solutions to life. Together, let’s propel our visions into the vast possibilities of the digital universe. 🚀🌐",
+    "about":"Welcome! As a seasoned backend developer and DevOps enthusiast, my focus is engineering robust infrastructures and optimizing deployment workflows. Leveraging Java, Spring Boot, Docker, and CI/CD best practices, I build systems that are both resilient and adaptable. Through innovative DevOps strategies using Terraform and Ansible, I ensure efficient delivery and maintenance of cloud solutions. Join me in shaping the next wave of digital transformation. 🚀",
     "img":"./img/profile.jpg",
     "img2":"./img/profile2.jpg",
     "alt":"profile img"

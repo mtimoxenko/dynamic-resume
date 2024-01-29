@@ -24,6 +24,12 @@
         "href":"https://github.com/fr3m3n"
     },
     {
+        "iconClass":["fa-brands", "fa-docker"],
+        "medium":"DockerHub",
+        "detail":"@fr3m3n",
+        "href":"https://hub.docker.com/u/fr3m3n"
+    },
+    {
         "iconClass":["fa-brands", "fa-gitlab"],
         "medium":"GitLab",
         "detail":"@frem3n",

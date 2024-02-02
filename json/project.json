@@ -16,14 +16,6 @@
         "dev": "dev"
     },
     {
-        "title":"Dynamic Resume",
-        "subtitle":"  WebPage Resume",
-        "description": "The challenge goes beyond a traditional static document. Vanilla JS was chosen to build this dynamic website. Fetch API interface was used to render the site asynchronously via get() requests retrieving individual data items from the server to update sections of a webpage. A visually appealing layout was designed using HTML and CSS. After thorough testing and optimization, the page was deployed on a hosting platform.",
-        "tag": "#VanillaJS #AsyncWebApp #WebDeployment ",
-        "gitRef": "https://github.com/fr3m3n/dynamic-resume",
-        "dev": "dev"
-    },
-    {
         "title":"EC2-Deployer",
         "subtitle":" AWS EC2 Provisioning and Deployment",
         "description": "EC2-Deployer is a robust automation tool utilizing Ansible for streamlined provisioning and configuration of AWS EC2 instances. It facilitates secure SSH key management, efficient EC2 instance setup, and quick deployment of local web pages to the cloud, aiming to optimize and simplify AWS EC2 instance management and web hosting tasks.",
@@ -33,9 +25,9 @@
     },
     {
         "title": "Git'n Go",
-        "subtitle": " Simplifying Git for Beginners",
-        "description": "A user-friendly command-line tool designed to streamline the Git workflow. It simplifies common Git operations such as add, commit, and push, making it easier for beginners and seasoned users alike to manage their repositories with less complexity. Git-n-Go automates these tasks into a single command, enhancing productivity and making Git operations more straightforward.",
-        "tag": "#GitSimplified #CodingEfficiency #VersionControlMadeEasy ",
+        "subtitle": " AI-powered Bash Script",
+        "description": "Bash script, with its AI sidekick crafting commit messages. Born out of the chaos during timed coding challenges of friends battling Git. Git-n-Go simplifies it for beginners– no memorizing, no sweating over messages. Just code, laugh, and leap forward!",
+        "tag": "#AICommitAssistant #GitForAll #EasyVersioning ",
         "gitRef": "https://github.com/fr3m3n/git-n-go",
         "dev": "ops"
     },

@@ -4,7 +4,7 @@
         "subtitle": "Organize Your Tasks Efficiently",
         "description": "Task Manager App designed with a JavaScript, CSS, and HTML frontend for a dynamic user experience. The Java-based backend with Spring Boot and JPA ensures robust data handling and RESTful API integration. Containerized with Docker and orchestrated via GitLab CI/CD pipelines for automated builds and deployment. Infrastructure managed by Terraform and configured with Ansible for reliable AWS EC2 provisioning.",
         "tag": "#TaskManagement #SpringBoot #DevOps",
-        "gitRef": "https://gitlab.com/frem3n/media-workbench",
+        "gitRef": "https://gitlab.com/mtimoxenko/media-workbench",
         "dev": "dev"
     },
     {
@@ -12,7 +12,7 @@
         "subtitle":" DentaCura App",
         "description": "The Dentalcura Clinic Management System is a Java-based full-stack web application utilizing Spring Boot and Jakarta EE for the backend. HTML, CSS, and JavaScript, along with Spring MVC, compose the frontend, while data persistence is achieved via Hibernate and JPA with an H2 database during development. This system follows RESTful architecture for seamless integration with healthcare systems. ",
         "tag": "#HealthcareWebApp #JavaFullStack #RESTfulIntegration ",
-        "gitRef": "https://github.com/fr3m3n/dentalcura-app",
+        "gitRef": "https://github.com/mtimoxenko/dentalcura-app",
         "dev": "dev"
     },
     {
@@ -20,7 +20,7 @@
         "subtitle":" AWS EC2 Provisioning and Deployment",
         "description": "EC2-Deployer is a robust automation tool utilizing Ansible for streamlined provisioning and configuration of AWS EC2 instances. It facilitates secure SSH key management, efficient EC2 instance setup, and quick deployment of local web pages to the cloud, aiming to optimize and simplify AWS EC2 instance management and web hosting tasks.",
         "tag": "#CloudAutomation #AnsibleEC2 #WebHostingSolutions ",
-        "gitRef": "https://github.com/fr3m3n/ec2-deployer",
+        "gitRef": "https://github.com/mtimoxenko/ec2-deployer",
         "dev": "ops"
     },
     {
@@ -28,7 +28,7 @@
         "subtitle": " AI-powered Bash Script",
         "description": "Bash script, with its AI sidekick crafting commit messages. Born out of the chaos during timed coding challenges of friends battling Git. Git-n-Go simplifies it for beginners– no memorizing, no sweating over messages. Just code, laugh, and leap forward!",
         "tag": "#AICommitAssistant #GitForAll #EasyVersioning ",
-        "gitRef": "https://github.com/fr3m3n/git-n-go",
+        "gitRef": "https://github.com/mtimoxenko/git-n-go",
         "dev": "ops"
     },
     {
@@ -36,7 +36,7 @@
         "subtitle": " Scalable and Secure Infrastructure Solutions",
         "description": "Cloud Core is a resilient AWS infrastructure crafted using Terraform and Ansible. It features a strategic blend of public and private subnets, ensuring optimized security and resource accessibility. Essential components such as EC2 instances, NAT Gateways, and S3 buckets are thoughtfully integrated to bolster performance, security, and scalability. This architecture epitomizes a balanced, efficient, and secure cloud environment.",
         "tag": "#CloudComputing #InfrastructureAsCode #DevOps ",
-        "gitRef": "https://github.com/fr3m3n/cloud-core",
+        "gitRef": "https://github.com/mtimoxenko/cloud-core",
         "dev": "ops"
     }    
       

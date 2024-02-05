@@ -20,8 +20,8 @@
     {
         "iconClass":["fa-brands", "fa-github"],
         "medium":"GitHub",
-        "detail":"@fr3m3n",
-        "href":"https://github.com/fr3m3n"
+        "detail":"@mtimoxenko",
+        "href":"https://github.com/mtimoxenko"
     },
     {
         "iconClass":["fa-brands", "fa-docker"],
@@ -32,7 +32,7 @@
     {
         "iconClass":["fa-brands", "fa-gitlab"],
         "medium":"GitLab",
-        "detail":"@frem3n",
-        "href":"https://gitlab.com/frem3n"
+        "detail":"@mtimoxenko",
+        "href":"https://gitlab.com/mtimoxenko"
     }
 ]
